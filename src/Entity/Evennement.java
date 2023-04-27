@@ -24,9 +24,8 @@ public class Evennement implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
-    
-    
+    private int nbrP;
+    private float prix;
     private String date_deb,date_fin; 
    private String  titre, description,adresse,cat_title;
 
@@ -88,6 +87,23 @@ public class Evennement implements Serializable {
     public void setAdresse(String adresse) {
         this.adresse = adresse;
     }
+
+    public int getNbrP() {
+        return nbrP;
+    }
+
+    public void setNbrP(int nbrP) {
+        this.nbrP = nbrP;
+    }
+
+    public float getPrix() {
+        return prix;
+    }
+
+    public void setPrix(float prix) {
+        this.prix = prix;
+    }
+    
 
     @Override
     public int hashCode() {

@@ -10,34 +10,47 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="761.0" prefWidth="1045.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.EvennementController">
+<AnchorPane id="AnchorPane" prefHeight="837.0" prefWidth="1227.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.EvennementController">
    <children>
-      <TableView fx:id="tableViewEv" layoutX="378.0" layoutY="83.0" prefHeight="239.0" prefWidth="552.0">
+      <TableView fx:id="tableViewEv" layoutX="392.0" layoutY="84.0" prefHeight="239.0" prefWidth="741.0">
         <columns>
           <TableColumn fx:id="id_event" prefWidth="43.20001220703125" text="ID" />
           <TableColumn fx:id="titre_event" prefWidth="67.20001220703125" text="TITRE" />
             <TableColumn fx:id="dateD_event" prefWidth="116.0" text="DATE_DEBUT" />
-            <TableColumn fx:id="dateF_event" prefWidth="75.0" text="DATE_FIN" />
-            <TableColumn fx:id="cat_event" prefWidth="75.0" text="CATEGORIE" />
-            <TableColumn fx:id="adr_event" prefWidth="75.0" text="ADRESSE" />
-            <TableColumn fx:id="dec_event" prefWidth="99.99993896484375" text="DESCRIPTION" />
+            <TableColumn fx:id="dateF_event" prefWidth="123.20001220703125" text="DATE_FIN" />
+            <TableColumn fx:id="cat_event" prefWidth="75.199951171875" text="CATEGORIE" />
+            <TableColumn fx:id="adr_event" prefWidth="104.00006103515625" text="ADRESSE" />
+            <TableColumn fx:id="dec_event" prefWidth="101.5999755859375" text="DESCRIPTION" />
+            <TableColumn fx:id="prix_event" minWidth="5.5999755859375" prefWidth="53.60009765625" text="PRIX" />
+            <TableColumn fx:id="nbrP_event" prefWidth="55.2000732421875" text="nbrP" />
         </columns>
       </TableView>
-      <TextField fx:id="titre" layoutX="170.0" layoutY="108.0" />
-      <DatePicker fx:id="date_debut" layoutX="156.0" layoutY="167.0" />
-      <DatePicker fx:id="date_fin" layoutX="156.0" layoutY="220.0" />
-      <TextField fx:id="adr" layoutX="173.0" layoutY="381.0" />
-      <TextArea fx:id="desc" layoutX="146.0" layoutY="466.0" prefHeight="200.0" prefWidth="200.0" />
-      <Label layoutX="28.0" layoutY="112.0" text="TITRE:" />
-      <Label layoutX="30.0" layoutY="171.0" text="DATE_DEBUT:" />
-      <Label layoutX="30.0" layoutY="224.0" text="DATE_FIN" />
-      <Label layoutX="30.0" layoutY="385.0" text="ADRESSE:" />
-      <Label layoutX="30.0" layoutY="557.0" text="DESCRIPTION:" />
-      <ChoiceBox fx:id="categorie" layoutX="170.0" layoutY="294.0" prefWidth="150.0" />
-      <Label layoutX="37.0" layoutY="299.0" text="CATEGORIE:" />
-      <Button layoutX="378.0" layoutY="641.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="30.0" prefWidth="87.0" text="ajouter" />
+      <TextField fx:id="titre" layoutX="171.0" layoutY="38.0" />
+      <DatePicker fx:id="date_debut" layoutX="157.0" layoutY="97.0" />
+      <DatePicker fx:id="date_fin" layoutX="157.0" layoutY="150.0" />
+      <TextField fx:id="adr" layoutX="174.0" layoutY="311.0" />
+      <TextArea fx:id="desc" layoutX="147.0" layoutY="362.0" prefHeight="200.0" prefWidth="200.0" />
+      <Label layoutX="29.0" layoutY="42.0" text="TITRE:" />
+      <Label layoutX="31.0" layoutY="101.0" text="DATE_DEBUT:" />
+      <Label layoutX="31.0" layoutY="154.0" text="DATE_FIN" />
+      <Label layoutX="31.0" layoutY="315.0" text="ADRESSE:" />
+      <Label layoutX="31.0" layoutY="453.0" text="DESCRIPTION:" />
+      <ChoiceBox fx:id="categorie" layoutX="171.0" layoutY="224.0" prefWidth="150.0" />
+      <Label layoutX="38.0" layoutY="229.0" text="CATEGORIE:" />
+      <Button layoutX="259.0" layoutY="702.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="30.0" prefWidth="87.0" text="ajouter" />
       <Button layoutX="392.0" layoutY="350.0" mnemonicParsing="false" onAction="#AfficherEvent" text="afficher" />
       <Button layoutX="483.0" layoutY="350.0" mnemonicParsing="false" onAction="#updateEvent" text="update" />
       <Button layoutX="562.0" layoutY="350.0" mnemonicParsing="false" onAction="#delEvent" text="Supprimer" />
+      <TextField fx:id="sID" layoutX="562.0" layoutY="466.0" prefHeight="26.0" prefWidth="167.0" />
+      <Button layoutX="562.0" layoutY="502.0" mnemonicParsing="false" onAction="#AfficherEventByID" text="ID" />
+      <Button layoutX="628.0" layoutY="502.0" mnemonicParsing="false" onAction="#AfficherEventByTitle" text="Title" />
+      <Button layoutX="693.0" layoutY="502.0" mnemonicParsing="false" onAction="#AfficherEventByCat" text="Cat" />
+      <Button layoutX="396.0" layoutY="394.0" mnemonicParsing="false" onAction="#AfficherEventTriDD" text="TriDD" />
+      <Button layoutX="654.0" layoutY="350.0" mnemonicParsing="false" onAction="#buyP" text="BUY" />
+      <TextField fx:id="prix" layoutX="173.0" layoutY="604.0" />
+      <TextField fx:id="nbrP" layoutX="174.0" layoutY="660.0" />
+      <Label layoutX="47.0" layoutY="608.0" text="PRIX:" />
+      <Label layoutX="47.0" layoutY="664.0" text="NBRP:" />
+      <Button fx:id="goToCat" layoutX="1071.0" layoutY="754.0" mnemonicParsing="false" text="CAT" />
    </children>
 </AnchorPane>

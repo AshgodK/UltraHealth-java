@@ -32,18 +32,15 @@ public class EvennementServ extends Evennement
     {
      try {
           cnx=MyConnection.getInstance().getCnx();
-          String req = "insert into evennement(date_debut,  date_fin, adresse, category_id, titre, description)"
-                        +"values('"+e.getDate_deb()+"','"+e.getDate_fin()+"','"+e.getAdresse()+"','"+id_cat+"','"+e.getTitre()+"','"+e.getDescription()
-                       +"')";
+          String req = "insert into evennement(date_debut,  date_fin, adresse, category_id, titre, description,prix,nbrP)"
+                        +"values('"+e.getDate_deb()+"','"+e.getDate_fin()+"','"+e.getAdresse()+"','"+id_cat+"','"+e.getTitre()+"','"+e.getDescription()+"','"+e.getPrix()+"','"+e.getNbrP()+"')";
                 Statement st = cnx.createStatement();
                 st.executeUpdate(req);
                 System.out.println("event ajouter avec succ");
             } catch (SQLException ex) {
                 
                 System.out.println(ex.getMessage());        
-            }   
-    
-    
+            }      
     }
      
       public List<Evennement> GetEvennements() 
@@ -64,9 +61,11 @@ public class EvennementServ extends Evennement
         int category_id = rs.getInt("category_id");
         String titre = rs.getString("titre");
         String decription = rs.getString("description");
+        int nbrP = rs.getInt("nbrP");
+        float priceE = rs.getFloat("prix");
         
         
-         e.setId(id);
+            e.setId(id);
             e.setDate_deb(date_debut);
             e.setDate_fin(date_fin);
             e.setAdresse(adresse);
@@ -74,6 +73,8 @@ public class EvennementServ extends Evennement
             e.setDescription(decription);
             EventCategServ ec=new EventCategServ();
             e.setCat_title(ec.GetCategorieTitre(category_id));
+            e.setNbrP(nbrP);
+            e.setPrix(priceE);
                   
                   
               
@@ -91,6 +92,7 @@ public class EvennementServ extends Evennement
       public void ModiferrEvent(Evennement e,int id,int id_cat) {
     try {
         cnx = MyConnection.getInstance().getCnx();
+        
         String req = "UPDATE evennement SET titre=?, description=?, date_debut=?, date_fin=?, category_id=?, adresse=? WHERE id=?";
         PreparedStatement pst = cnx.prepareStatement(req);
           
@@ -121,5 +123,211 @@ public class EvennementServ extends Evennement
         }
     }
    
+      
+       public List<Evennement> GetEvennementsByID(String idR) 
+    {
+       List<Evennement> list=new ArrayList<>();
+        try {
+            cnx=MyConnection.getInstance().getCnx();
+
+            String req = "SELECT * FROM evennement where id = "+idR;
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            while (rs.next()) {
+                    Evennement e = new Evennement();
+                   Long id = rs.getLong("id");
+        String date_debut = rs.getString("date_debut");
+        String date_fin = rs.getString("date_fin");
+        String adresse = rs.getString("adresse");
+        int category_id = rs.getInt("category_id");
+        String titre = rs.getString("titre");
+        String decription = rs.getString("description");
+        
+                   int nbrP = rs.getInt("nbrP");
+        float priceE = rs.getFloat("prix");
+        
+        
+         e.setId(id);
+            e.setDate_deb(date_debut);
+            e.setDate_fin(date_fin);
+            e.setAdresse(adresse);
+            e.setTitre(titre);
+            e.setDescription(decription);
+            EventCategServ ec=new EventCategServ();
+            e.setCat_title(ec.GetCategorieTitre(category_id));
+            e.setNbrP(nbrP);
+            e.setPrix(priceE);
+                   
+                  
+              
+                list.add(e);
+                
+
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        }
+        return list;
+    }
+       
+       public List<Evennement> GetEvennementsByTitle(String t) 
+    {
+       List<Evennement> list=new ArrayList<>();
+        try {
+            cnx=MyConnection.getInstance().getCnx();
+
+            String req = "SELECT * FROM evennement WHERE titre=?";
+PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(req);
+pst.setString(1, t);
+ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                    Evennement e = new Evennement();
+                   Long id = rs.getLong("id");
+        String date_debut = rs.getString("date_debut");
+        String date_fin = rs.getString("date_fin");
+        String adresse = rs.getString("adresse");
+        int category_id = rs.getInt("category_id");
+        String titre = rs.getString("titre");
+        String decription = rs.getString("description");
+        
+                   int nbrP = rs.getInt("nbrP");
+        float priceE = rs.getFloat("prix");
+        
+        
+         e.setId(id);
+            e.setDate_deb(date_debut);
+            e.setDate_fin(date_fin);
+            e.setAdresse(adresse);
+            e.setTitre(titre);
+            e.setDescription(decription);
+            EventCategServ ec=new EventCategServ();
+            e.setCat_title(ec.GetCategorieTitre(category_id));
+            e.setNbrP(nbrP);
+            e.setPrix(priceE);
+                 
+                  
+                  
+              
+                list.add(e);
+                
+
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        }
+        return list;
+    }
+       public List<Evennement> GetEvennementsBycat(int idC) 
+    {
+       List<Evennement> list=new ArrayList<>();
+        try {
+            cnx=MyConnection.getInstance().getCnx();
+
+            String req = "SELECT * FROM evennement WHERE category_id=?";
+PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(req);
+pst.setInt(1, idC);
+ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                    Evennement e = new Evennement();
+                   Long id = rs.getLong("id");
+        String date_debut = rs.getString("date_debut");
+        String date_fin = rs.getString("date_fin");
+        String adresse = rs.getString("adresse");
+        int category_id = rs.getInt("category_id");
+        String titre = rs.getString("titre");
+        String decription = rs.getString("description");
     
+                   int nbrP = rs.getInt("nbrP");
+        float priceE = rs.getFloat("prix");
+        
+        
+         e.setId(id);
+            e.setDate_deb(date_debut);
+            e.setDate_fin(date_fin);
+            e.setAdresse(adresse);
+            e.setTitre(titre);
+            e.setDescription(decription);
+            EventCategServ ec=new EventCategServ();
+            e.setCat_title(ec.GetCategorieTitre(category_id));
+            e.setNbrP(nbrP);
+            e.setPrix(priceE);
+            
+                  
+                  
+              
+                list.add(e);
+                
+
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        }
+        return list;
+    }
+    
+       public List<Evennement> GetEvennementsTrierDD() 
+    {
+       List<Evennement> list=new ArrayList<>();
+        try {
+            cnx=MyConnection.getInstance().getCnx();
+
+            String req = "SELECT * FROM evennement ORDER BY  date_debut ASC";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            while (rs.next()) {
+                    Evennement e = new Evennement();
+                   Long id = rs.getLong("id");
+        String date_debut = rs.getString("date_debut");
+        String date_fin = rs.getString("date_fin");
+        String adresse = rs.getString("adresse");
+        int category_id = rs.getInt("category_id");
+        String titre = rs.getString("titre");
+        String decription = rs.getString("description");
+        
+                   int nbrP = rs.getInt("nbrP");
+        float priceE = rs.getFloat("prix");
+        
+        
+         e.setId(id);
+            e.setDate_deb(date_debut);
+            e.setDate_fin(date_fin);
+            e.setAdresse(adresse);
+            e.setTitre(titre);
+            e.setDescription(decription);
+            EventCategServ ec=new EventCategServ();
+            e.setCat_title(ec.GetCategorieTitre(category_id));
+            e.setNbrP(nbrP);
+            e.setPrix(priceE);
+                  
+                  
+                  
+              
+                list.add(e);
+                
+
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        }
+        return list;
+    }
+       
+       public void updatenbrP(int i)
+    {
+        try {
+          cnx=MyConnection.getInstance().getCnx();
+            String req = " UPDATE evennement SET " + " nbrP=nbrP-1  where id = ? ";
+            PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(req);           
+               pst.setLong(1, i);              
+            pst.executeUpdate();
+                System.out.println("ticket ajouter avec succ");
+            } catch (SQLException ex) {
+                
+                System.out.println(ex.getMessage());        
+            } 
+    }
 }
