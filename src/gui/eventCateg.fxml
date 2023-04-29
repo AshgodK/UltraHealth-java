@@ -6,11 +6,17 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="660.0" prefWidth="916.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="gui.EventCategController">
+<AnchorPane id="AnchorPane" prefHeight="660.0" prefWidth="916.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.EventCategController">
    <children>
+      <ImageView fitHeight="660.0" fitWidth="916.0">
+         <image>
+            <Image url="@back.jpg" />
+         </image>
+      </ImageView>
       <TextField fx:id="titre" layoutX="207.0" layoutY="170.0" />
       <TextArea fx:id="description" layoutX="182.0" layoutY="251.0" prefHeight="200.0" prefWidth="200.0" />
       <Label layoutX="53.0" layoutY="174.0" text="titre" />
@@ -26,5 +32,6 @@
       <Button layoutX="299.0" layoutY="468.0" mnemonicParsing="false" onAction="#update" prefHeight="26.0" prefWidth="82.0" text="Modifier" />
       <Button layoutX="459.0" layoutY="383.0" mnemonicParsing="false" onAction="#AfficherCateg" prefHeight="26.0" prefWidth="82.0" text="Refresh" />
       <Button layoutX="563.0" layoutY="384.0" mnemonicParsing="false" onAction="#del" prefHeight="26.0" prefWidth="82.0" text="Supprimer" />
+      <Button fx:id="goToEvs" layoutX="823.0" layoutY="577.0" mnemonicParsing="false" text="Events" />
    </children>
 </AnchorPane>

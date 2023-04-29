@@ -32,8 +32,12 @@ public class JavaApplication3 extends Application {
     
     public void start(Stage primaryStage) throws IOException, InterruptedException, LineUnavailableException, UnsupportedAudioFileException 
     {
-     AnchorPane root1 = FXMLLoader.load(getClass().getResource("/gui/evennement.fxml"));
-         primaryStage.setScene(new Scene(root1));
+          AnchorPane root1 = FXMLLoader.load(getClass().getResource("/gui/evennementFront.fxml"));
+         Scene scene = new Scene(root1);
+        // scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+          primaryStage.setScene(scene);
+        
+          
         
          primaryStage.show();  
 

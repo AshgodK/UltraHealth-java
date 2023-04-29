@@ -142,7 +142,6 @@ public class EvennementServ extends Evennement
         int category_id = rs.getInt("category_id");
         String titre = rs.getString("titre");
         String decription = rs.getString("description");
-        
                    int nbrP = rs.getInt("nbrP");
         float priceE = rs.getFloat("prix");
         
@@ -330,4 +329,61 @@ ResultSet rs = pst.executeQuery();
                 System.out.println(ex.getMessage());        
             } 
     }
+       
+       
+       public int GetnbrP(int id) 
+    {
+       int nbrP=0;
+    try {
+        cnx = MyConnection.getInstance().getCnx();
+        String req = "SELECT nbrP FROM evennement WHERE id = ?";
+        PreparedStatement ps = cnx.prepareStatement(req);
+        ps.setInt(1, id);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            nbrP = rs.getInt("nbrP");
+        }
+    } catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+    }
+    return nbrP;
+    }
+       
+       public Evennement GetEvennementByID(String idR) {
+    Evennement e = null;
+    try {
+        cnx = MyConnection.getInstance().getCnx();
+        String req = "SELECT * FROM evennement WHERE id = " + idR;
+        Statement st = cnx.createStatement();
+        ResultSet rs = st.executeQuery(req);
+        if (rs.next()) {
+            e = new Evennement();
+            Long id = rs.getLong("id");
+            String date_debut = rs.getString("date_debut");
+            String date_fin = rs.getString("date_fin");
+            String adresse = rs.getString("adresse");
+            int category_id = rs.getInt("category_id");
+            String titre = rs.getString("titre");
+            String decription = rs.getString("description");
+            int nbrP = rs.getInt("nbrP");
+            float priceE = rs.getFloat("prix");
+
+            e.setId(id);
+            e.setDate_deb(date_debut);
+            e.setDate_fin(date_fin);
+            e.setAdresse(adresse);
+            e.setTitre(titre);
+            e.setDescription(decription);
+            EventCategServ ec = new EventCategServ();
+            e.setCat_title(ec.GetCategorieTitre(category_id));
+            e.setNbrP(nbrP);
+            e.setPrix(priceE);
+        }
+    } catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+    }
+    return e;
+}
+      
+    
 }

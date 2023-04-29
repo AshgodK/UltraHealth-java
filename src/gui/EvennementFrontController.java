@@ -41,6 +41,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
@@ -48,30 +49,19 @@ import javafx.stage.Stage;
  *
  * @author pc
  */
-public class EvennementController implements Initializable {
+public class EvennementFrontController implements Initializable {
 
+    public static int Ove;
     @FXML
     private TableView<Evennement> tableViewEv;
-    @FXML
-    private TextField titre;
-    @FXML
-    private DatePicker date_debut;
-    @FXML
-    private DatePicker date_fin;
-    @FXML
-    private TextField adr;
-     @FXML
-    private TextField prix;
-      @FXML
-    private TextField nbrP;
+    
     @FXML
     private TextField sID;
-    @FXML
-    private TextArea desc;
+    
     @FXML
     private ChoiceBox<String> categorie;
      @FXML
-    private Button goToCat;
+    private Button goToDetail;
     @FXML
     private TableColumn<?, ?> id_event;
     @FXML
@@ -100,86 +90,17 @@ public class EvennementController implements Initializable {
         EventCategServ ev = new EventCategServ();
     categorie.getItems().addAll(ev.GetCategoriesTitle());
         
-    goToCat.setOnAction(event -> {
-        try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/eventCateg.fxml"));
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-            Stage stage = (Stage) goToCat.getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    });
+    
+    
+
+categorie.setOnAction(event -> {
+    AfficherEventByCat();
+});
         
     }  
     
-    @FXML
-    private void ajouter(javafx.event.ActionEvent event) 
-    {
-        
-         String ttr=titre.getText();
-        String selectedCategory = categorie.getValue();
-        String dct=desc.getText();
-        String adre=adr.getText();
-        String price=prix.getText();
-        String nbP=nbrP.getText();
-        
-        
-            LocalDate today = LocalDate.now();       
-            LocalDate dateD=date_debut.getValue();            
-            LocalDate dateF=date_fin.getValue();
-            
-            
-            
-        
-        
-         if (price.isEmpty()||nbP.isEmpty()||ttr.isEmpty()||  dct.isEmpty()||  selectedCategory.isEmpty()||adre.isEmpty()||dateF == null||dateD == null) 
-         {
-            // Alerte si un champ est vide
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Veuillez remplir tous les champs.");
-            alert.showAndWait();
-           
-         } 
-         else if (dateD.isBefore(today)||dateF.isBefore(dateD)) {
-                  Alert alert = new Alert(Alert.AlertType.WARNING, "check date.");
-            alert.showAndWait();
-             }
-         else 
-         { 
-             
-             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-             String dateString = dateD.format(formatter);
-             DateTimeFormatter formatterF = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-             String dateStringF = dateF.format(formatterF);
-             EventCategServ ecs= new EventCategServ();
-             EvennementServ Evnt=new EvennementServ();
-             int cat = ecs.GetCategorieID(selectedCategory);
-             if (cat == -1) {
-    // Category not found, show error message and return
-    Alert alert = new Alert(Alert.AlertType.ERROR, "Selected category not found.");
-    alert.showAndWait();
-    return;
-}
-             Evennement newEvent = new Evennement();
-             newEvent.setDate_deb(dateString);
-             newEvent.setDate_fin(dateStringF);
-             newEvent.setTitre(ttr);
-             newEvent.setDescription(dct);
-             newEvent.setAdresse(adre);
-              newEvent.setPrix(Float.parseFloat(price));
-               newEvent.setNbrP(Integer.parseInt(nbP));
-             Evnt.AjouterEvent(newEvent,cat);
-             
-         
-           
-             
-             
-             
-         }        
-    }
+    
+  
     
     @FXML
     public void AfficherEvent() {
@@ -189,7 +110,7 @@ public class EvennementController implements Initializable {
     
    
     ObservableList<Evennement> EVList = FXCollections.observableArrayList(lE);
-id_event.setVisible(false);
+    id_event.setVisible(false);
     id_event.setCellValueFactory(new PropertyValueFactory<>("id"));
     titre_event.setCellValueFactory(new PropertyValueFactory<>("titre"));
     dec_event.setCellValueFactory(new PropertyValueFactory<>("description"));
@@ -203,130 +124,13 @@ id_event.setVisible(false);
 }
     
     
-    @FXML
-    public void updateEvent()
-    {
-        int SelectedRowIndex = tableViewEv.getSelectionModel().getSelectedIndex();
-        
-        int ColumnIndex = tableViewEv.getColumns().indexOf(id_event);
-         
-        
-        Alert A = new Alert(Alert.AlertType.CONFIRMATION);
-        if (SelectedRowIndex == -1) {
-            A.setAlertType(Alert.AlertType.WARNING);
-            A.setContentText("Selectionnez une colonne ! ");
-            A.show();
-        } else {
-            String IdCell = tableViewEv.getColumns().get(ColumnIndex).getCellData(SelectedRowIndex).toString();
-           int id_modif = Integer.parseInt(IdCell);
-           //EventCategServ ec = new EventCategServ();
-            A.setAlertType(Alert.AlertType.CONFIRMATION);
-
-            A.setContentText("Voulez vous modifier event dont l'ID : " + IdCell + " ?");
-            Optional<ButtonType> result = A.showAndWait();
-        
-        if (result.isPresent() && result.get() == ButtonType.OK) {
-               String ttr=titre.getText();
-        String selectedCategory = categorie.getValue();
-        String dct=desc.getText();
-        String adre=adr.getText();
-            LocalDate dateD=date_debut.getValue();
-            
-            LocalDate dateF=date_fin.getValue();
-        
-        
-         if (ttr.isEmpty()||  dct.isEmpty()||  selectedCategory.isEmpty()||adre.isEmpty()||dateF == null||dateD == null) 
-         {
-            // Alerte si un champ est vide
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Veuillez remplir tous les champs.");
-            alert.showAndWait();
-           
-         } 
-         else 
-         { 
-             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-             String dateString = dateD.format(formatter);
-             DateTimeFormatter formatterF = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-             String dateStringF = dateF.format(formatterF);
-             EventCategServ ecs= new EventCategServ();
-             EvennementServ Evnt=new EvennementServ();
-             int cat = ecs.GetCategorieID(selectedCategory);
-             if (cat == -1) {
-    // Category not found, show error message and return
-    Alert alert = new Alert(Alert.AlertType.ERROR, "Selected category not found.");
-    alert.showAndWait();
-    return;
-}
-             Evennement newEvent = new Evennement();
-             newEvent.setDate_deb(dateString);
-             newEvent.setDate_fin(dateStringF);
-             newEvent.setTitre(ttr);
-             newEvent.setDescription(dct);
-             newEvent.setAdresse(adre);
-             Evnt.ModiferrEvent(newEvent, id_modif, cat);
-             
-         
-           
-             
-             
-             
-         }  
-                
-            }
-        }
-    }
     
     
-     public void delEvent()
-    {
-        int SelectedRowIndex = tableViewEv.getSelectionModel().getSelectedIndex();
-        
-        int ColumnIndex = tableViewEv.getColumns().indexOf(id_event);
-        
-        
-        Alert A = new Alert(Alert.AlertType.CONFIRMATION);
-        if (SelectedRowIndex == -1) {
-            A.setAlertType(Alert.AlertType.WARNING);
-            A.setContentText("Selectionnez une colonne ! ");
-            A.show();
-        } else {
-            String IdCell = tableViewEv.getColumns().get(ColumnIndex).getCellData(SelectedRowIndex).toString();
-            int id_supp = Integer.parseInt(IdCell);
-            EvennementServ ec = new EvennementServ();
-            A.setAlertType(Alert.AlertType.CONFIRMATION);
-
-            A.setContentText("Voulez vous Supprimer event  dont l'ID : " + IdCell + " ?");
-            Optional<ButtonType> result = A.showAndWait();
-
-            if (result.isPresent() && result.get() == ButtonType.OK) {
-                ec.supprimerEvent(id_supp);
-                A.setAlertType(Alert.AlertType.INFORMATION);
-                A.setContentText("event Supprimé ! ");
-                A.show();
-                
-            }
-
-        }
-    }
+    
+    
      
      
-     public void AfficherEventByID() {
-    tableViewEv.getItems().clear();
-    EvennementServ ev = new EvennementServ();
-    String id=sID.getText();
-    List<Evennement> lE = ev.GetEvennementsByID(id);
-    ObservableList<Evennement> EVList = FXCollections.observableArrayList(lE);
-    id_event.setCellValueFactory(new PropertyValueFactory<>("id"));
-    titre_event.setCellValueFactory(new PropertyValueFactory<>("titre"));
-    dec_event.setCellValueFactory(new PropertyValueFactory<>("description"));
-    dateD_event.setCellValueFactory(new PropertyValueFactory<>("date_deb"));
-    dateF_event.setCellValueFactory(new PropertyValueFactory<>("date_fin"));
-    cat_event.setCellValueFactory(new PropertyValueFactory<>("cat_title"));
-    adr_event.setCellValueFactory(new PropertyValueFactory<>("adresse"));
-    prix_event.setCellValueFactory(new PropertyValueFactory<>("prix"));
-    nbrP_event.setCellValueFactory(new PropertyValueFactory<>("nbrP"));
-    tableViewEv.setItems(EVList);
-}
+     
      public void AfficherEventByTitle() {
     tableViewEv.getItems().clear();
     EvennementServ ev = new EvennementServ();
@@ -348,7 +152,8 @@ id_event.setVisible(false);
       public void AfficherEventByCat() {
     tableViewEv.getItems().clear();
     EvennementServ ev = new EvennementServ();
-    String t=sID.getText();
+   //String t=sID.getText();
+    String t = categorie.getValue();
     EventCategServ ecs= new EventCategServ();
              
              int cat = ecs.GetCategorieID(t);
@@ -418,27 +223,95 @@ id_event.setVisible(false);
             Optional<ButtonType> result = A.showAndWait();
         
         if (result.isPresent() && result.get() == ButtonType.OK) {
+            EvennementServ ev = new EvennementServ();
+            if (ev.GetnbrP(id_Evnt)==0) {
+                A.setAlertType(Alert.AlertType.WARNING);
+            A.setContentText("event full ");
+            A.show();
+            }
               
-               
+            else{
                UUID uuid = UUID.randomUUID();
                String codeP=uuid.toString();
              
-            EvennementServ ev = new EvennementServ();
+            //EvennementServ ev = new EvennementServ();
              passeServ pass=new passeServ();
              
              passe newP = new passe();
-             mail m=new mail();
+             
             
              newP.setNomEvent(TitleCell);
              newP.setCode(codeP);
              newP.setPriEvent(priceE);
              pass.AjouterEvent(newP, id_Evnt);
              ev.updatenbrP(id_Evnt);
-             m.mailto();
+            }
+            
    
             }
         }
        }
+       
+       public int getID()
+       {
+       int SelectedRowIndex = tableViewEv.getSelectionModel().getSelectedIndex();       
+        int ColumnID = -1;
+        int num=-1;
+        
+            
+          //ColumnID = tableViewEv.getColumns().indexOf(id_event);
+        Alert A = new Alert(Alert.AlertType.CONFIRMATION);
+        if (SelectedRowIndex == -1) {
+            A.setAlertType(Alert.AlertType.WARNING);
+            A.setContentText("Selectionnez une colonne ! ");
+            A.show();
+            
+        }
+        else{ColumnID = tableViewEv.getColumns().indexOf(id_event);
+           String IdCell = tableViewEv.getColumns().get(ColumnID).getCellData(SelectedRowIndex).toString();
+          num =Integer.parseInt(IdCell);
+        } 
+            return num;
+       }
+       public int loadDetail()
+       {
+           int t=getID();
+       goToDetail.setOnAction(event -> {
+        try {
+           // System.out.println(t);
+            if (t!=-1) { 
+                Ove=t;
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/detailEvent.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) goToDetail.getScene().getWindow();
+            stage.setScene(scene);
+            //Ove=t;
+            stage.show();
+            
+            }
+            
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    });
+       return t;}
+       
+       public Evennement getEvent(int t)
+       {
+           EvennementServ e=new EvennementServ();
+          // Evennement ev=new Evennement();
+         //  int t=getID();
+           System.out.println(t);
+           String str = Integer.toString(t);
+           Evennement ev=e.GetEvennementByID(str);           
+           return ev;
+       
+       }
+       
+       
+       
+       
        
        
 

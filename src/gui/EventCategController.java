@@ -9,6 +9,7 @@ import util.MyConnection;
 import Service.EventCategServ;
 import Service.EventCateg;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Statement;
 import java.util.List;
@@ -17,8 +18,12 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -26,6 +31,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 
 
@@ -48,6 +54,8 @@ public class EventCategController implements Initializable {
     private TableColumn<?, ?> titre_cat_event;
     @FXML
     private TableColumn<?, ?> description_cat_event;
+    @FXML
+    private Button goToEvs;
     
      
 
@@ -58,6 +66,19 @@ public class EventCategController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         AfficherCateg();
+        
+        goToEvs.setOnAction(event -> {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/evennement.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) goToEvs.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    });
     }    
     
     
