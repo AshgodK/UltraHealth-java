@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="panetetbadel" prefHeight="624.8" prefWidth="972.0" style="-fx-background-color: #000000; -fx-border-color: #be894a; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GestionPanier">
+<Pane fx:id="panetetbadel" prefHeight="658.0" prefWidth="972.0" style="-fx-background-color: #000000; -fx-border-color: #be894a; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GestionPanier">
    <children>
-      <VBox alignment="TOP_CENTER" prefHeight="620.0" prefWidth="970.0">
+      <VBox alignment="TOP_CENTER" prefHeight="656.0" prefWidth="970.0">
          <children>
             <TableView fx:id="reservationsTable" prefHeight="300.0" prefWidth="50.0">
                <VBox.margin>
@@ -35,6 +35,7 @@
                   <TextField fx:id="searchby" onKeyTyped="#searchkeypressed" prefWidth="200.0" />
                </children>
             </HBox>
+            <Button fx:id="pdf" mnemonicParsing="false" onAction="#pdf" prefHeight="38.0" prefWidth="186.0" style="-fx-background-color: #BE894A;" styleClass="hoverClass" text="Pdf" textFill="WHITE" />
             <Button mnemonicParsing="false" onAction="#AddReservation" prefHeight="35.0" prefWidth="190.0" style="-fx-background-color: #BE894A;" styleClass="hoverClass" text="Add Reservation" textFill="WHITE">
                <VBox.margin>
                   <Insets top="10.0" />

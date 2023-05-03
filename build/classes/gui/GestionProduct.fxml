@@ -35,6 +35,7 @@
                   <TextField fx:id="searchby" onKeyTyped="#searchkeypressed" prefWidth="200.0" />
                </children>
             </HBox>
+            <Button fx:id="panier" mnemonicParsing="false" onAction="#GOpanier" prefHeight="34.0" prefWidth="150.0" style="-fx-background-color: #FFFFFF;" styleClass="hoverClass" text="Panier" />
             <Button mnemonicParsing="false" onAction="#AddBook" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #FFFFFF;" styleClass="hoverClass" text="Add Product">
                <VBox.margin>
                   <Insets top="10.0" />

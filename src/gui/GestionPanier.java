@@ -1,5 +1,17 @@
 package gui;
 
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.pdf.fonts.FontsResourceAnchor;
+import java.io.FileOutputStream;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -31,7 +43,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.SortEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -51,6 +66,10 @@ public class GestionPanier {
 
 		  private double xOffset = 0;
 		  private double yOffset = 0;
+    @FXML
+    private Pane panetetbadel;
+    @FXML
+    private Button pdf;
 
 	public void initialize() {
 			loadtable();
@@ -59,7 +78,7 @@ public class GestionPanier {
 	 }
     public void loadtable() {
     	try {
-        	String sql =  "select * from reservation where 1" ;
+        	String sql =  "select * from panier where 1" ;
 	        Statement smt = Main.con.createStatement() ;
 	        ResultSet rs = smt.executeQuery(sql) ;
 	        for(int i=0 ; i<rs.getMetaData().getColumnCount(); i++){
@@ -124,10 +143,10 @@ public class GestionPanier {
 			 	Parent root;
 			 	Stage primaryStage = new Stage();
 		        FXMLLoader loader = new FXMLLoader();
-		        loader.setLocation(getClass().getResource("AjoutReservation.fxml"));
+		        loader.setLocation(getClass().getResource("AjoutPanier.fxml"));
 		        root = loader.load();
 		        Scene scene = new Scene(root);
-		        scene.getStylesheets().add(getClass().getResource("../../application/application.css").toExternalForm());
+		        scene.getStylesheets().add(getClass().getResource("/gui/style/application.css").toExternalForm());
 		        primaryStage.getIcons().add(new Image("/images/logo.jpeg"));
 		        primaryStage.setTitle("Think Digital");
 		        primaryStage.initStyle(StageStyle.UNDECORATED);
@@ -161,17 +180,17 @@ public class GestionPanier {
     	selectedreservation.add((String)(Object)dataa.get(0));
     	selectedreservation.add((String)(Object)dataa.get(1));
     	selectedreservation.add((String)(Object)dataa.get(2));
-    	selectedreservation.add((String)(Object)dataa.get(3));
-    	selectedreservation.add((String)(Object)dataa.get(4));
+    	//selectedreservation.add((String)(Object)dataa.get(3));
+    	//selectedreservation.add((String)(Object)dataa.get(4));
     	ModifierPanier.Modifier(selectedreservation);
 		 try {
 			 	Parent root;
 			 	Stage primaryStage = new Stage();
 		        FXMLLoader loader = new FXMLLoader();
-		        loader.setLocation(getClass().getResource("ModifierReservation.fxml"));
+		        loader.setLocation(getClass().getResource("/gui/ModifierPanier.fxml"));
 		        root = loader.load();
 		        Scene scene = new Scene(root);
-		        scene.getStylesheets().add(getClass().getResource("../../application/application.css").toExternalForm());
+		        scene.getStylesheets().add(getClass().getResource("gui/style/application.css").toExternalForm());
 		        primaryStage.getIcons().add(new Image("/images/logo.jpeg"));
 		        primaryStage.setTitle("Think Digital");
 		        primaryStage.initStyle(StageStyle.UNDECORATED);
@@ -202,13 +221,13 @@ public class GestionPanier {
     void DeleteReservation(ActionEvent event) {
     	ObservableList<ObservableList> dataa = reservationsTable.getSelectionModel().getSelectedItem();
     	try {
-			String sql =  "DELETE FROM `reservation` WHERE `id` = '"+(String)(Object)dataa.get(0)+"'" ;
+			String sql =  "DELETE FROM `panier` WHERE `id` = '"+(String)(Object)dataa.get(0)+"'" ;
 			Statement smt = Main.con.createStatement() ;
 	        smt.executeUpdate((sql)) ;
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("Success");
 			alert.setHeaderText(null);
-			alert.setContentText("You Deleted The Reservation "+(String)(Object)dataa.get(1));
+			alert.setContentText("You Deleted The panier "+(String)(Object)dataa.get(1));
 			Stage alertstage = (Stage) alert.getDialogPane().getScene().getWindow();
 			alertstage.getIcons().add(new Image("/images/logo.jpeg")); // To add an icon
 			alert.showAndWait();
@@ -218,7 +237,6 @@ public class GestionPanier {
 		}
     }
     	
-    @FXML
     void closeWindow(ActionEvent event) {
     	((Node)(event.getSource())).getScene().getWindow().hide();
 
@@ -238,5 +256,83 @@ public class GestionPanier {
     	listsearch.add("dateretour");
     	searchcategory.getItems().addAll(listsearch);
     }
+    
+           public void CreerPDF(String pan) {
+       // panier c = reservationsTable.getSelectionModel().getSelectedItem();
+        
+        
+        String myWeb = reservationsTable.getSelectionModel().getSelectedItem().toString();
+         Document document = new Document();
+        try {
+            PdfWriter.getInstance(document, new FileOutputStream("ex.pdf"));
+            document.open();
+            document.add(new Paragraph(myWeb));
+            document.close();
+            System.out.println("PDF created successfully");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+
+    }
+
+    private void pdf(TableView tableView) {
+        Document document = new Document();
+    try {
+        PdfWriter.getInstance(document, new FileOutputStream("table_data.pdf"));
+        document.open();
+        
+        // Add table header
+        PdfPTable pdfTable = new PdfPTable(tableView.getColumns().size());
+        for (TableColumn column : reservationsTable.getColumns()) {
+            pdfTable.addCell(new PdfPCell(new Phrase(column.getText())));
+        }
+        
+        // Add table data
+        for (Object item : tableView.getItems()) {
+            for (TableColumn column : reservationsTable.getColumns()) {
+                Object cellValue = column.getCellData(item);
+                pdfTable.addCell(new PdfPCell(new Phrase(cellValue.toString())));
+            }
+        }
+        
+        document.add(pdfTable);
+        document.close();
+        System.out.println("PDF created successfully");
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    }
+
+    @FXML
+    private void pdf(ActionEvent event) {
+         Document document = new Document();
+    try {
+        PdfWriter.getInstance(document, new FileOutputStream("table_data"+ConnectionController.idU+".pdf"));
+        document.open();
+        
+        // Add table header
+        PdfPTable pdfTable = new PdfPTable(reservationsTable.getColumns().size());
+        for (TableColumn column : reservationsTable.getColumns()) {
+            pdfTable.addCell(new PdfPCell(new Phrase(column.getText())));
+        }
+        
+        // Add table data
+        for (Object item : reservationsTable.getItems()) {
+            for (TableColumn column : reservationsTable.getColumns()) {
+                Object cellValue = column.getCellData(item);
+                pdfTable.addCell(new PdfPCell(new Phrase(cellValue.toString())));
+            }
+        }
+        
+        document.add(pdfTable);
+        document.close();
+        System.out.println("PDF created successfully");
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    }
+   
+
 
 }

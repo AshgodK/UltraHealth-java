@@ -93,12 +93,12 @@ import javafx.stage.Stage;
 	    		        ResultSet rs = smt.executeQuery(userssql) ;
 	    		        while (rs.next()) {
 
-	    		        	listusersusername.add(rs.getString("username")) ;
+	    		        	listusersusername.add(rs.getString("firstname")) ;
 	    			        }
 	    		        userselect.getItems().addAll(listusersusername);
 	    		        listbooksname.removeAll();
 	    		        listbooksid.removeAll();
-	    		    	String bookssql =  "SELECT * FROM `book` WHERE `id` not in(select idbook from reservation where id != '"+selectedreservationnew.get(0)+"')" ;
+	    		    	String bookssql =  "SELECT * FROM `product` WHERE `id` not in(select idproduit from panier where id != '"+selectedreservationnew.get(0)+"')" ;
 	    		        ResultSet rss = smt.executeQuery(bookssql) ;
 	    		        while (rss.next()) {
 	    		        	listbooksname.add(rss.getString("titre")) ;
@@ -108,11 +108,12 @@ import javafx.stage.Stage;
 	    		    }catch(Exception e){
 	    		    	System.out.println(e);
 	    		    }
-	    		    idreservation.setText(selectedreservationnew.get(0));
-	    			userselect.setValue(selectedreservationnew.get(1));
-	    			bookselect.setValue(listbooksname.get(listbooksid.indexOf(Integer.parseInt(selectedreservationnew.get(2)))));
-	    			dateemprunt.setValue(LocalDate.parse(selectedreservationnew.get(3)));
-	    			dateretour.setValue(LocalDate.parse(selectedreservationnew.get(4)));
+	    		        idreservation.setText(selectedreservationnew.get(3));
+	    			userselect.setValue(selectedreservationnew.get(0));
+	    			bookselect.setValue(listbooksname.get(listbooksid.indexOf(Integer.parseInt(selectedreservationnew.get(1)))));
+	    			dateemprunt.setValue(LocalDate.parse(selectedreservationnew.get(2)));
+	    			//dateretour.setValue(LocalDate.parse(selectedreservationnew.get(4)));
 	    			
 	    	   }
+                   
 }

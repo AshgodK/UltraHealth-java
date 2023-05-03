@@ -4,6 +4,7 @@ import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -35,7 +36,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -55,6 +58,10 @@ public class GestionProduct {
 
 		  private double xOffset = 0;
 		  private double yOffset = 0;
+    @FXML
+    private Pane panetetbadel;
+    @FXML
+    private Button panier;
 
 	public void initialize() {
 			loadtable();
@@ -221,7 +228,6 @@ public class GestionProduct {
 		}
     }
     	
-    @FXML
     void closeWindow(ActionEvent event) {
     	((Node)(event.getSource())).getScene().getWindow().hide();
 
@@ -242,5 +248,19 @@ public class GestionProduct {
     	searchcategory.getItems().addAll(listsearch);
     }
     
-
+    @FXML
+    public void GOpanier()
+{
+    try {
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/GestionPanier.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) panier.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+}
 }
