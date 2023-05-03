@@ -98,6 +98,9 @@ public class UserDashBoardController implements Initializable {
     private ImageView eventKey;
     @FXML
     private Button GoToPara;
+    private Button GoToRd;
+    @FXML
+    private Button GoToCon;
     
 
      /**
@@ -259,7 +262,22 @@ public class UserDashBoardController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/Login.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
-            Stage stage = (Stage) checkEvents.getScene().getWindow();
+            Stage stage = (Stage) GoToPara.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+    @FXML
+    public void gotoCon()
+    {
+     try {
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/consultation.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) GoToCon.getScene().getWindow();
             stage.setScene(scene);
             stage.show();
         } catch (IOException ex) {

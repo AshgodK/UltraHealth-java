@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="950.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ChatController">
+    
+    
+    <children>
+      <AnchorPane fx:id="an" layoutX="556.0" layoutY="125.0" prefHeight="456.0" prefWidth="256.0" />
+    
+     
+      <ScrollPane layoutX="9.0" layoutY="63.0" prefHeight="332.0" prefWidth="675.0">
+         <content>
+            <TextArea fx:id="textchat" prefHeight="371.0" prefWidth="673.0" promptText="coversation BOT / utilisateur">
+               
+            </TextArea>
+         </content>
+      </ScrollPane>
+      <TextField fx:id="ASK" layoutX="15.0" layoutY="435.0" onAction="#UserA" prefHeight="110.0" prefWidth="664.0" />
+      
+     
+      
+   </children>
+</AnchorPane>
