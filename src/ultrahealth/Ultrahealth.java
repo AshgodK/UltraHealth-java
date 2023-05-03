@@ -36,7 +36,7 @@ public class Ultrahealth extends Application{
     
     public void start(Stage primaryStage) throws IOException, InterruptedException, LineUnavailableException, UnsupportedAudioFileException 
     {
-     AnchorPane root1 = FXMLLoader.load(getClass().getResource("/gui/rendezvous.fxml"));
+     AnchorPane root1 = FXMLLoader.load(getClass().getResource("/gui/consultation.fxml"));
          primaryStage.setScene(new Scene(root1));
         root1.setOnMousePressed(new EventHandler<MouseEvent>()
         {

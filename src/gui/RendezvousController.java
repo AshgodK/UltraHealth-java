@@ -74,14 +74,19 @@ public class RendezvousController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         show();
-    }    
+    }  
+    
+    
+    
+    
     ObservableList<Rendezvous> Rendezvous;
      MyConnection cnxfv = null;
      Statement st = null;
      servicerendez   rcd = new servicerendez();
        public void updateTable(){
         Rendezvous= (ObservableList<Rendezvous>) rcd.Recuperer();
-        tablerendez.getItems().setAll(Rendezvous);}
+        tablerendez.getItems().setAll(Rendezvous);
+       }
 
     @FXML
     private void selection(MouseEvent event) {
@@ -121,6 +126,9 @@ public class RendezvousController implements Initializable {
         if (event.getCharacter().matches("[^a-zA-Z]")){
     event.consume();
                 }
+        
+        
+        
     }
 
     @FXML
@@ -227,10 +235,10 @@ public class RendezvousController implements Initializable {
 
        servicerendez rc = new servicerendez();
          String var1=id.getText();
-        String var2=etatt.getText();
+        String var2=et.getText();
         String var3=msg.getText();
         String var4=ty.getText();
-        
+        String var6=date.getValue().toString();
         
         int var5=Integer.parseInt(var1);
       
@@ -240,10 +248,11 @@ public class RendezvousController implements Initializable {
       r.setEtat(var2);
       r.setMessage(var3);
       r.setType_lieu(var4);
+      r.setDate_rdv(var6);
       
         r=tablerendez.getSelectionModel().getSelectedItem();
         
-        rc.modifierrendezvous(r,var5,var2,var3,var4);
+        rc.modifierrendezvous(r,var5,var2,var3,var4,var6);
         updateTable();
         }
       else if (reponse == nonButton) {

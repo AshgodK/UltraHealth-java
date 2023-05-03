@@ -39,12 +39,14 @@ public class servicerendez implements Irendezvous<Rendezvous>{
                 System.out.println("rendez-vous ajouter avec succ");
             } catch (SQLException ex) {
                 
-                System.out.println(ex.getMessage());        }   }
+                System.out.println(ex.getMessage()); 
+            }  
+    }
 
     @Override
-    public void modifierrendezvous(Rendezvous l,  int id,String etat, String message, String type_lieu) {
+    public void modifierrendezvous(Rendezvous l,  int id,String etat, String message, String type_lieu,String date) {
      try {
-            String req = " UPDATE rendez SET " + "id=?,  etat=?, message = ? ,type_lieu=?  where id=" + l.getId();
+            String req = " UPDATE rendez SET " + "id=?, etat=?, message = ? ,type_lieu=? , date_rdv=? where id=" + l.getId();
             PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(req);
           
             
@@ -53,6 +55,7 @@ public class servicerendez implements Irendezvous<Rendezvous>{
             
                pst.setString(3, message);
                 pst.setString(4, type_lieu);
+                pst.setString(5, date);
              
             pst.executeUpdate();
             System.out.println("le rendez-vous   modifié !");

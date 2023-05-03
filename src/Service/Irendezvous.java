@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface Irendezvous <R> {
      public void Ajouterrendezvous(R r);
-      public void modifierrendezvous(R l,int id, String etat,String message,String type_lieu  );
+      public void modifierrendezvous(R l,int id, String etat,String message,String type_lieu,String date  );
       public void supprimerrendez (R r);
       public List<R>Recuperer();
     
