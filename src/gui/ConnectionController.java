@@ -91,6 +91,7 @@ public class ConnectionController implements Initializable {
                 this.user = new Users(this.user.getId(),this.user.getCin(),this.user.getFirstName(),this.user.getLastName(),this.user.getZone(),this.user.getBirthDay(),this.user.getRole(),this.user.getEmail(),this.user.getPassword(),this.user.getToken());
                 System.out.println(this.user.toString());
                 JavaApp.setRoot("adminDashboard");
+                
                 return this.user;
                }else{
                 System.out.println("faild ! ");

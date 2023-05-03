@@ -94,6 +94,10 @@ public class UserDashBoardController implements Initializable {
 
     @FXML
     private Button logOutBtn;
+    @FXML
+    private ImageView eventKey;
+    @FXML
+    private Button GoToPara;
     
 
      /**
@@ -245,6 +249,21 @@ public class UserDashBoardController implements Initializable {
             
         }else{
             System.out.println("failed ! ");
+        }
+    }
+    @FXML
+    public void gotoPara()
+    {
+     try {
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/Login.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) checkEvents.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
     }
     

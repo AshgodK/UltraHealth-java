@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #000000; -fx-border-color: #BE894A; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjoutPanier">
+   <children>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/logo.jpeg" />
+               </image>
+            </ImageView>
+            <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: black; -fx-border-color: #be894a; -fx-border-width: 3; -fx-border-radius: 40; -fx-cursor: pointer;" styleClass="hoverClass" text="X" textFill="#be894a">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+         <VBox.margin>
+            <Insets bottom="25.0" />
+         </VBox.margin>
+      </HBox>
+      <GridPane vgap="10.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="75.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="160.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="75.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label prefHeight="18.0" prefWidth="292.0" text="User :" textFill="#be894a" GridPane.columnIndex="1">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label prefHeight="18.0" prefWidth="292.0" text="Book  :" textFill="#be894a" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label prefHeight="18.0" prefWidth="292.0" text="Date de l'emprunt  :" textFill="#be894a" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="bookselect" prefHeight="26.0" prefWidth="411.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <ChoiceBox fx:id="usersselect" prefHeight="26.0" prefWidth="411.0" GridPane.columnIndex="2" />
+            <DatePicker fx:id="dateemprunt" prefHeight="26.0" prefWidth="197.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Label prefHeight="18.0" prefWidth="292.0" text="Date du retour  :" textFill="#be894a" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="dateretour" prefHeight="26.0" prefWidth="197.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="50.0" />
+         </padding>
+      </GridPane>
+      <Button mnemonicParsing="false" onAction="#onAddclicked" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: #BE894A;" styleClass="hoverClass" text="Add" textFill="WHITE">
+         <VBox.margin>
+            <Insets bottom="20.0" />
+         </VBox.margin>
+      </Button>
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</VBox>

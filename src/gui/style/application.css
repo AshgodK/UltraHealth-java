@@ -1,0 +1,47 @@
+.hoverClass:hover{
+    -fx-cursor: hand  !important;
+}
+.table-view
+{
+    -fx-background-color:  #be894a;
+    -fx-background-radius: 5;
+}
+
+.table-view .column-header-background{
+    -fx-background-color: #000000;
+}
+
+
+.table-view .column-header-background .label{
+    -fx-background-color: transparent;
+    -fx-text-fill: #be894a;
+    -fx-pref-width: 250px;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+.table-view .table-cell{
+    -fx-text-fill: #be894a;
+    -fx-pref-width: 250px;
+
+}
+
+.table-row-cell{
+    -fx-background-color: -fx-table-cell-border-color, #000000;
+    -fx-background-insets: 0, 0 0 1 0;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #FFFFFF;
+}
+
+.table-view > .virtual-flow > .scroll-bar:vertical,
+.table-view > .virtual-flow > .scroll-bar:vertical > .track,
+.table-view > .virtual-flow > .scroll-bar:vertical > .track-background, 
+.table-view > .virtual-flow > .scroll-bar:horizontal,
+.table-view > .virtual-flow > .scroll-bar:horizontal > .track,
+.table-view > .virtual-flow > .scroll-bar:horizontal > .track-background {
+    -fx-background-color: transparent;
+}

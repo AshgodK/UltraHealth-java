@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="panetetbadel" prefHeight="624.8" prefWidth="972.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #25fde9; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GestionCategories">
+   <children>
+      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="12.0" prefHeight="600.0" prefWidth="950.0">
+         <children>
+            <TableView fx:id="categorytableview" prefHeight="200.0" prefWidth="250.0" />
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="650.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="30.0" prefWidth="146.0" text="Search With" textFill="#594abd">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="15.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="searchby" onKeyTyped="#onsearchtyped" promptText="search" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="150.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="ajoutwith" prefWidth="250.0" promptText="enter the name of the category to add">
+                           <HBox.margin>
+                              <Insets right="50.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Button mnemonicParsing="false" onAction="#addcategory" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #25fde9;" styleClass="hoverClass" text="Add category" textFill="#100000" />
+                     </children>
+                  </HBox>
+                  <Button mnemonicParsing="false" onAction="#removeselected" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #25fde9;" styleClass="hoverClass" text="Remove Selected Category" textFill="#100101">
+                     <VBox.margin>
+                        <Insets top="50.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</Pane>
