@@ -90,12 +90,12 @@
       <Button fx:id="logOutBtn" layoutX="932.0" layoutY="15.0" mnemonicParsing="false" onAction="#logOutBtnClicked" style="-fx-background-color: #03B8FB;" text="Log Out" />
       <Pane layoutX="16.0" layoutY="277.0" prefHeight="58.0" prefWidth="137.0">
          <children>
-            <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="16.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="GoToMenu" fitHeight="45.0" fitWidth="45.0" layoutX="16.0" layoutY="11.0" onMouseClicked="#gotoMenu" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/etiquette.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="45.0" fitWidth="78.0" layoutX="76.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="GoToCon" fitHeight="45.0" fitWidth="78.0" layoutX="76.0" layoutY="11.0" onMouseClicked="#gotoCon" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/lhistoire.png" />
                </image>
@@ -104,17 +104,17 @@
       </Pane>
       <Pane layoutX="20.0" layoutY="122.0" prefHeight="155.0" prefWidth="129.0">
          <children>
-            <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="14.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="GoToPara" fitHeight="45.0" fitWidth="45.0" layoutX="14.0" layoutY="88.0" onMouseClicked="#gotoPara" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/entrevue.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="eventKey" fitHeight="45.0" fitWidth="45.0" layoutX="74.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="eventKey" fitHeight="45.0" fitWidth="45.0" layoutX="74.0" layoutY="29.0" onMouseClicked="#gotoEvent" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/evenement.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="74.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="GoToArticle" fitHeight="45.0" fitWidth="45.0" layoutX="74.0" layoutY="88.0" onMouseClicked="#gotoArticle" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/forum.png" />
                </image>
@@ -127,8 +127,5 @@
          </children>
       </Pane>
       <Separator layoutX="153.0" layoutY="137.0" orientation="VERTICAL" prefHeight="221.0" prefWidth="0.0" />
-      <Button fx:id="checkEvents" layoutX="33.0" layoutY="368.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="46.0" text="event" />
-      <Button fx:id="GoToPara" layoutX="87.0" layoutY="368.0" mnemonicParsing="false" onAction="#gotoPara" text="Para" />
-      <Button fx:id="GoToCon" layoutX="33.0" layoutY="409.0" mnemonicParsing="false" onAction="#gotoCon" prefHeight="26.0" prefWidth="46.0" text="Con" />
    </children>
 </AnchorPane>

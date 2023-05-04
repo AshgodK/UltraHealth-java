@@ -1,0 +1,2 @@
+Gui.PostManagerController$primaryStage
+Gui.PostManagerController

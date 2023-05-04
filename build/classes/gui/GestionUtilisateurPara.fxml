@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane fx:id="panetetbadel" prefHeight="624.8" prefWidth="972.0" style="-fx-background-color: #000000; -fx-border-color: #be894a; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GestionUtilisateurPara">
+<Pane fx:id="panetetbadel" prefHeight="624.8" prefWidth="972.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #25fde94a; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GestionUtilisateurPara">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="620.0" prefWidth="970.0">
          <children>
@@ -23,7 +22,7 @@
             </TableView>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label prefHeight="30.0" prefWidth="102.0" text="Search By" textFill="#be894a">
+                  <Label prefHeight="30.0" prefWidth="102.0" text="Search By" textFill="#254f8e">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -36,12 +35,12 @@
                   <TextField fx:id="searchby" onKeyTyped="#searchkeypressed" prefWidth="200.0" />
                </children>
             </HBox>
-            <Button mnemonicParsing="false" onAction="#UpdateUser" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #BE894A;" styleClass="hoverClass" text="Update Selected User" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#UpdateUser" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #25fde9;" styleClass="hoverClass" text="Update Selected User">
                <VBox.margin>
                   <Insets top="50.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#DeleteUser" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #BE894A;" styleClass="hoverClass" text="Delete Selected User" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#DeleteUser" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #25fde9;" styleClass="hoverClass" text="Delete Selected User">
                <VBox.margin>
                   <Insets top="50.0" />
                </VBox.margin>

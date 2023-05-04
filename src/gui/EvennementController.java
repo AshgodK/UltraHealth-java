@@ -5,6 +5,7 @@
 package gui;
 
 
+import Entities.Ingrediant;
 import Entity.Evennement;
 import Entity.EventCategory;
 import Entity.passe;
@@ -12,6 +13,13 @@ import Service.EvennementServ;
 import Service.EventCategServ;
 import Service.mail;
 import Service.passeServ;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.Authenticator;
 import java.net.PasswordAuthentication;
@@ -27,6 +35,8 @@ import java.util.ResourceBundle;
 import java.util.UUID;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingFXUtils;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -42,6 +52,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javax.mail.Address;
 import javax.mail.Message;
@@ -102,6 +114,8 @@ public class EvennementController implements Initializable {
     private TableColumn<?, ?> nbrP_event;
     @FXML
     private Button ProfileB;
+    @FXML
+    private Button QRCODE;
 
     /**
      * Initializes the controller class.
@@ -301,7 +315,6 @@ id_event.setVisible(false);
             }
         }
     }
-    @FXML
     public void pid()
     {
          passeServ p=new passeServ();
@@ -542,6 +555,53 @@ id_event.setVisible(false);
         Transport.send(message);
 
         System.out.println("Email sent successfully.");
+    }
+    @FXML
+         private void QR(ActionEvent event) {
+       // Ingrediant c = tableViewEv.getSelectionModel().getSelectedItem();
+        
+        QRCodeWriter qrCodeWriter = new QRCodeWriter();
+        String myWeb = tableViewEv.getSelectionModel().getSelectedItem().toString();
+        int width = 300;
+        int height = 300;
+        String fileType = "png";
+        
+        BufferedImage bufferedImage = null;
+        try {
+            BitMatrix byteMatrix = qrCodeWriter.encode(myWeb, BarcodeFormat.QR_CODE, width, height);
+            bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+            bufferedImage.createGraphics();
+            
+            Graphics2D graphics = (Graphics2D) bufferedImage.getGraphics();
+            graphics.setColor(Color.WHITE);
+            graphics.fillRect(0, 0, width, height);
+            graphics.setColor(Color.BLACK);
+            
+            for (int i = 0; i < height; i++) {
+                for (int j = 0; j < width; j++) {
+                    if (byteMatrix.get(i, j)) {
+                        graphics.fillRect(i, j, 1, 1);
+                    }
+                }
+            }
+            
+            System.out.println("Success...");
+            
+        } catch (WriterException ex) {
+            
+        }
+        
+        ImageView qrView = new ImageView();
+        qrView.setImage(SwingFXUtils.toFXImage(bufferedImage, null));
+        
+        StackPane root = new StackPane();
+        root.getChildren().add(qrView);
+        
+        Scene scene = new Scene(root, 350, 350);
+        Stage newStage = new Stage();
+        newStage.setTitle("Hello World!");
+        newStage.setScene(scene);
+        newStage.show();
     }
     
 }

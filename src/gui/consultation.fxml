@@ -19,7 +19,7 @@
       <TextField fx:id="numero" layoutX="105.0" layoutY="190.0" />
       <TextField fx:id="description" layoutX="105.0" layoutY="236.0" />
       <Button layoutX="222.0" layoutY="392.0" mnemonicParsing="false" onAction="#modifierCons" onMouseClicked="#modifierCons" text="Modifier" />
-      <Button layoutX="307.0" layoutY="392.0" mnemonicParsing="false" onAction="#supprimerCons" text="Supprimer" />
+      <Button layoutX="307.0" layoutY="392.0" mnemonicParsing="false" onAction="#supprimerCons" onMouseClicked="#home" text="Supprimer" />
       <Button layoutX="397.0" layoutY="392.0" mnemonicParsing="false" onAction="#vider" text="Vider" />
       <TableView fx:id="tableconsul" layoutX="291.0" layoutY="90.0" onMouseClicked="#selection" prefHeight="200.0" prefWidth="377.0">
         <columns>
@@ -30,5 +30,7 @@
             <TableColumn fx:id="tableviewDesc" prefWidth="75.0" text="Description" />
         </columns>
       </TableView>
+      <Button fx:id="home" layoutX="619.0" layoutY="474.0" mnemonicParsing="false" onMouseClicked="#home" text="Home" />
+      <Button fx:id="createPdf" layoutX="291.0" layoutY="311.0" mnemonicParsing="false" onAction="#CreatePDF" text="CreatePdf" />
    </children>
 </AnchorPane>

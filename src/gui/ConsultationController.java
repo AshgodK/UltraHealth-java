@@ -19,6 +19,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.pdf.fonts.FontsResourceAnchor;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -29,7 +30,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -40,6 +44,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 //import org.controlsfx.control.textfield.TextFields;
 
 
@@ -83,6 +88,10 @@ public class ConsultationController implements Initializable {
     private TableView<Consultation> tableconsul;
     public ObservableList<Consultation> dataCons=FXCollections.observableArrayList();
     int index=-1;
+    @FXML
+    private Button home;
+    @FXML
+    private Button createPdf;
     
    
 
@@ -251,52 +260,38 @@ private void show() {
 
     
     
-    
-   /* 
-    public void generatePDF(String code)
-   {
+    @FXML
+   private void CreatePDF(ActionEvent event) {
+       
+       String det = tableconsul.getSelectionModel().getSelectedItem().toString();
+         Document document = new Document();
         try {
-          
-            Document document = new Document(PageSize.A7.rotate());
-            //String imgPath="D:/NetBeans/JavaApplication3/src/gui/pngegg.png";
-            //Image img = Image.getInstance(imgPath);
-             FontsResourceAnchor te = new FontsResourceAnchor();
-            PdfWriter.getInstance(document, new FileOutputStream(code+".pdf"));
+            PdfWriter.getInstance(document, new FileOutputStream("pdf/consultation.pdf"));
             document.open();
-            Font font = FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, BaseColor.BLACK);
-
-           
-            Paragraph paragraph = new Paragraph("PASS "+LabelTitreE.getText());
-            paragraph.setAlignment(Element.ALIGN_CENTER);
-             Font redFont = new Font();
-    redFont.setColor(BaseColor.RED);
-            Paragraph paragraph1 = new Paragraph( "Date debut: " +LabelDDE.getText());
-             Font blueFont = new Font();
-    blueFont.setColor(BaseColor.BLUE);
-            Paragraph paragraph2 = new Paragraph( "Date fin: " +LabelDFE.getText());
-            Paragraph paragraph3 = new Paragraph("Description: " +LabeldescE.getText());
-            
-            Paragraph paragraph4 = new Paragraph("Adresse: " +LabelAdrE.getText());
-            paragraph4.setFont(redFont);
-            Paragraph paragraph5 = new Paragraph("Categorie: " +LabelCatE.getText());
-            Paragraph paragraph6 = new Paragraph("Prix: " +LabelPriE.getText());
-             Paragraph paragraph7 = new Paragraph();
-   // paragraph7.add(new Chunk(img, 0, 0, true));
-    document.add(paragraph7);
-            document.add(paragraph);
-            document.add(paragraph1);
-            document.add(paragraph2);
-            document.add(paragraph3);
-            document.add(paragraph4);
-            document.add(paragraph5);
-            document.add(paragraph6);
+            document.add(new Paragraph(det));
             document.close();
-            System.out.println("PDF document generated.");
-           
+            System.out.println("PDF created successfully");
         } catch (Exception e) {
-            System.err.println("Error generating PDF document: " + e.getMessage());
+            e.printStackTrace();
         }
-   }*/
+        
+
+    }
+
+    @FXML
+    private void home(MouseEvent event) {
+        try {
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/userDashBoard.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) home.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 
     @FXML
     private void modifierCons(MouseEvent event) {

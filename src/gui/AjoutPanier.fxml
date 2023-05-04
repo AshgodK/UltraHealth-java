@@ -14,19 +14,19 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #000000; -fx-border-color: #BE894A; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjoutPanier">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #25fde9; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjoutPanier">
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0" />
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../images/logo.jpeg" />
+                  <Image url="@../../../Downloads/331936351_3529688450642625_3445023389678489015_n.png" />
                </image>
             </ImageView>
             <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: black; -fx-border-color: #be894a; -fx-border-width: 3; -fx-border-radius: 40; -fx-cursor: pointer;" styleClass="hoverClass" text="X" textFill="#be894a">
+                  <Button maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: white; -fx-border-color: #25fde9; -fx-border-width: 3; -fx-border-radius: 40; -fx-cursor: pointer;" styleClass="hoverClass" text="X" textFill="#4aaebd">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
@@ -55,12 +55,12 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label prefHeight="18.0" prefWidth="292.0" text="Produit  :" textFill="#be894a" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Label prefHeight="18.0" prefWidth="292.0" text="Produit  :" textFill="#415eae" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label prefHeight="18.0" prefWidth="292.0" text="Date d'achat  :" textFill="#be894a" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Label prefHeight="18.0" prefWidth="292.0" text="Date d'achat  :" textFill="#415eae" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -75,7 +75,7 @@
             <Insets bottom="50.0" />
          </padding>
       </GridPane>
-      <Button mnemonicParsing="false" onAction="#onAddclicked" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: #BE894A;" styleClass="hoverClass" text="Add" textFill="WHITE">
+      <Button mnemonicParsing="false" onAction="#onAddclicked" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: #25fde9;" styleClass="hoverClass" text="Add">
          <VBox.margin>
             <Insets bottom="20.0" />
          </VBox.margin>

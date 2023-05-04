@@ -28,6 +28,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -35,29 +36,25 @@ import javafx.stage.Stage;
 public class LoginController {
 	  private double xOffset = 0;
 	  private double yOffset = 0;
-          @FXML
 	    private TextField usernametextfield;
 
-          @FXML
 	    private TextField emailtextfield;
-          @FXML
 	    private PasswordField passwordtextfield;
 
-          @FXML
 	    private PasswordField confirmpasstextfield;
 
 	    private String imagePath= new String();
-          @FXML
 	            private Label filelabel;
+    @FXML
 	    private Label Success;
 	 @FXML
 	    private TextField loginusername;
 @FXML
 	    private PasswordField loginpasseword;
-@FXML
 	    private TextField forgetpasswordusername;
-@FXML
 	    private TextField forgetpasswordemail;
+    @FXML
+    private ImageView logo;
 @FXML
           void forgotPassClicked(MouseEvent event) {
 
@@ -226,8 +223,7 @@ public class LoginController {
 
     }
     
-          @FXML
-    void onSignupclicked(ActionEvent event) {
+          void onSignupclicked(ActionEvent event) {
     	if ( !usernametextfield.getText().isEmpty() && !emailtextfield.getText().isEmpty() && !passwordtextfield.getText().isEmpty()&& !imagePath.isEmpty()) {
     		if (passwordtextfield.getText().equals(confirmpasstextfield.getText())) {
     			try {
@@ -295,8 +291,7 @@ public class LoginController {
 	    
     }
 
-          @FXML
-    void Backlogin(MouseEvent event) {
+          void Backlogin(MouseEvent event) {
 
     	Parent root;
         try {   
@@ -315,7 +310,6 @@ public class LoginController {
         }
 
     }
-    @FXML
     void onforgetclicked(ActionEvent event) {
     	String password = "";
     	try {
@@ -365,8 +359,7 @@ public class LoginController {
 
     	 
     	   }
-          @FXML
-    void uploadPic(ActionEvent event) {
+          void uploadPic(ActionEvent event) {
         try {
             Stage stage =(Stage) ((Node)(event.getSource())).getScene().getWindow();
             FileChooser fil_chooser = new FileChooser();
@@ -382,4 +375,20 @@ public class LoginController {
             System.out.println(e);
         }
 }
+    
+          @FXML
+    public void back()
+    {
+        try {
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/userDashBoard.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) logo.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 }

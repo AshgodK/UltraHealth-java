@@ -85,7 +85,7 @@
             <Font name="Arial Black" size="15.0" />
          </font></Label>
       <Button fx:id="goToCat" layoutX="841.0" layoutY="687.0" mnemonicParsing="false" text="CAT" />
-      <Button layoutX="576.0" layoutY="652.0" mnemonicParsing="false" onAction="#pid" text="Button" />
+      <Button fx:id="QRCODE" layoutX="576.0" layoutY="652.0" mnemonicParsing="false" onAction="#QR" text="QR" />
       <Button fx:id="ProfileB" layoutX="763.0" layoutY="690.0" mnemonicParsing="false" text="Profile" />
    </children>
    

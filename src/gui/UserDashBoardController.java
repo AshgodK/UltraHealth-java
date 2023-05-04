@@ -40,7 +40,6 @@ public class UserDashBoardController implements Initializable {
     @FXML
     private ImageView deleteIcon;
    
-    @FXML
     private Button checkEvents;
 
     private Base db;
@@ -97,10 +96,14 @@ public class UserDashBoardController implements Initializable {
     @FXML
     private ImageView eventKey;
     @FXML
-    private Button GoToPara;
+    private ImageView GoToPara;
     private Button GoToRd;
     @FXML
-    private Button GoToCon;
+    private ImageView GoToCon;
+    @FXML
+    private ImageView GoToArticle;
+    @FXML
+    private ImageView GoToMenu;
     
 
      /**
@@ -109,19 +112,7 @@ public class UserDashBoardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        checkEvents.setOnAction(event -> {
-        try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/evennementFront.fxml"));
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-            Stage stage = (Stage) checkEvents.getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    });
+       
         
     }    
     
@@ -278,6 +269,52 @@ public class UserDashBoardController implements Initializable {
             Parent root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = (Stage) GoToCon.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+    @FXML
+    public void gotoArticle()
+    {
+     try {
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/guii/AfficherPost.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) GoToArticle.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+    @FXML
+    public void gotoMenu()
+    {
+     try {
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/menu.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) GoToMenu.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+     @FXML
+    public void gotoEvent()
+    {
+     try {
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/evennementFront.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) eventKey.getScene().getWindow();
             stage.setScene(scene);
             stage.show();
         } catch (IOException ex) {

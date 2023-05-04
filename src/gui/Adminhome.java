@@ -125,7 +125,7 @@ public class Adminhome {
         
         root = loader.load();
         Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("../application/application.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/gui/style/application.css").toExternalForm());
         Stage stage =(Stage) ((Node)(event.getSource())).getScene().getWindow();
         root.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override

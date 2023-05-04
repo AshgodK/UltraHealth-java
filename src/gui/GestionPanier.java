@@ -143,7 +143,7 @@ public class GestionPanier {
 			 	Parent root;
 			 	Stage primaryStage = new Stage();
 		        FXMLLoader loader = new FXMLLoader();
-		        loader.setLocation(getClass().getResource("AjoutPanier.fxml"));
+		        loader.setLocation(getClass().getResource("/gui/AjoutPanier.fxml"));
 		        root = loader.load();
 		        Scene scene = new Scene(root);
 		        scene.getStylesheets().add(getClass().getResource("/gui/style/application.css").toExternalForm());
@@ -308,7 +308,7 @@ public class GestionPanier {
     private void pdf(ActionEvent event) {
          Document document = new Document();
     try {
-        PdfWriter.getInstance(document, new FileOutputStream("table_data"+ConnectionController.idU+".pdf"));
+        PdfWriter.getInstance(document, new FileOutputStream("PDF/table_data"+ConnectionController.idU+".pdf"));
         document.open();
         
         // Add table header
