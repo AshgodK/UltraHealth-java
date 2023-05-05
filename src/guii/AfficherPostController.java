@@ -51,6 +51,8 @@ public class AfficherPostController implements Initializable {
     private Button ajouterPublicationButton;
     @FXML
     private Button publicationListViewButton;
+    @FXML
+    private Button profile;
 
     /**
      * Initializes the controller class.
@@ -106,4 +108,19 @@ public class AfficherPostController implements Initializable {
             Logger.getLogger(NewFXMain.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    @FXML
+    public void GOHome()
+{
+    try {
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/userDashBoard.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) profile.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+}
 }

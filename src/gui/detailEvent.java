@@ -248,7 +248,7 @@ private String password = "degfppsysconhzft";
             Paragraph paragraph6 = new Paragraph("Prix: " +LabelPriE.getText());
              //Paragraph paragraph7 = new Paragraph();
              int[] transparency = new int[]{25, 25, 25};
-        Image image = Image.getInstance("src/images/luffy.png");
+        Image image = Image.getInstance("src/images/ultrahealth.png");
         
         //image.scaleToFit(10, 10);
         image.setTransparency(transparency);
@@ -305,8 +305,8 @@ textPart.setText("your pass has been created");
 
 // create the pdf part
 MimeBodyPart pdfPart = new MimeBodyPart();
-pdfPart.attachFile(new File("D:/NetBeans/JavaApp/PDF/"+pdf+".pdf")); // specify the file path of the pdf
-System.out.println("D:/NetBeans/JavaApp/PDF"+pdf+".pdf");
+pdfPart.attachFile(new File("C:/Users/pc/Desktop/JavaApp/PDF/"+pdf+".pdf")); // specify the file path of the pdf
+//System.out.println("D:/NetBeans/JavaApp/PDF"+pdf+".pdf");
 // add the parts to the multipart message
 multipart.addBodyPart(textPart);
 multipart.addBodyPart(pdfPart);

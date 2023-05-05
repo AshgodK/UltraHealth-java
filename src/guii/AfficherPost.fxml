@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="Accueil" onDragDetected="#Accueil" prefHeight="412.0" prefWidth="699.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guii.AfficherPostController">
+<AnchorPane id="AnchorPane" fx:id="Accueil" onDragDetected="#Accueil" onMouseClicked="#GOHome" prefHeight="412.0" prefWidth="699.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guii.AfficherPostController">
    <children>
       <Label fx:id="Publicaton" alignment="CENTER" contentDisplay="CENTER" layoutX="255.0" layoutY="22.0" style="-fx-background-color: black;" text="Publication" textFill="WHITE">
          <font>
@@ -25,5 +25,10 @@
          </font>
       </Label>
       <Button fx:id="publicationListViewButton" layoutX="261.0" layoutY="206.0" mnemonicParsing="false" onKeyTyped="#MyIListViewOpened" onMouseClicked="#publicationListViewAction" prefHeight="40.0" prefWidth="155.0" style="-fx-background-color: #D6AD53;" text="Qu'y a-t-il de nouveau?" />
+      <Button fx:id="profile" layoutX="617.0" layoutY="375.0" mnemonicParsing="false" onAction="#GOHome" onMouseClicked="#GOHome" prefHeight="22.0" prefWidth="67.0" style="-fx-background-color: #D6AD53;" text="Profile" textAlignment="CENTER">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

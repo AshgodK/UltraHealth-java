@@ -40,7 +40,7 @@ public class UserDashBoardController implements Initializable {
     @FXML
     private ImageView deleteIcon;
    
-    private Button checkEvents;
+   // private Button checkEvents;
 
     private Base db;
     private Users user ;
@@ -104,6 +104,8 @@ public class UserDashBoardController implements Initializable {
     private ImageView GoToArticle;
     @FXML
     private ImageView GoToMenu;
+    @FXML
+    private Button Forum;
     
 
      /**
@@ -146,7 +148,7 @@ public class UserDashBoardController implements Initializable {
             System.out.println("id user -> "+ this.user.getId());
         }
 
-        db = new Base("jdbc:mysql://localhost:3306/ultrahealth", "yako", "admin");
+        db = new Base("jdbc:mysql://localhost:3306/java", "root", "");
         db.connection();
         LocalDate lDate = this.birtDayEditField.getValue();
         java.util.Date date = this.user.converter(lDate);
@@ -233,7 +235,7 @@ public class UserDashBoardController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/connection.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
-            Stage stage = (Stage) checkEvents.getScene().getWindow();
+                Stage stage = (Stage) eventKey.getScene().getWindow();
             stage.setScene(scene);
             stage.show();
         } catch (IOException ex) {
@@ -265,7 +267,7 @@ public class UserDashBoardController implements Initializable {
     {
      try {
             
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/consultation.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/rendezVou.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = (Stage) GoToCon.getScene().getWindow();
@@ -322,7 +324,22 @@ public class UserDashBoardController implements Initializable {
         }
     }
     
-
+  
+    @FXML
+    public void goForum()
+    {
+     try {
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/singleQuestion.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) eventKey.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
    
 
 }

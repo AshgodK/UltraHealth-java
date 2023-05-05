@@ -12,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.SnapshotParameters;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
@@ -35,17 +36,23 @@ public class Adminhome {
     @FXML
     private ImageView profilepic=new ImageView();;
     @FXML
+    private Button ggggg;
+    @FXML
     void changepagemanageaccount(ActionEvent event) {
-    	try {
-	    	Pane newLoadedPane =        FXMLLoader.load(getClass().getResource("/gui/GestionUtilisateurPara.fxml"));
-	    	panetetbadel.getChildren().clear();
-	    	panetetbadel.getChildren().add(newLoadedPane); 
-		}catch(Exception e) {
-	    	System.out.println(e);
-	    }
+    	
+         try {
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/GestionUtilisateurPara.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ggggg.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
 
     }
-	 @FXML
 	    public void initialize() {
 		 esmwla9ab.setText(Main.username);
          File file = new File(Main.image);
@@ -93,7 +100,6 @@ public class Adminhome {
 	    	System.out.println(e);
 	    }
     }
-    @FXML
     void changepagemanageauthors(ActionEvent event) {
     	try {
 	    	Pane newLoadedPane = FXMLLoader.load(getClass().getResource("/admin/gestionauthors/authors.fxml"));
@@ -104,7 +110,6 @@ public class Adminhome {
 	    }
     }
 
-    @FXML
     void changepagemanagereservation(ActionEvent event) {
     	try {
 	    	Pane newLoadedPane =        FXMLLoader.load(getClass().getResource("/gui/GestionPanier.fxml"));

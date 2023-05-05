@@ -21,7 +21,7 @@
             <HBox prefHeight="100.0" prefWidth="200.0" />
             <ImageView fx:id="logo" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/pngegg.png" />
+                  <Image url="@images/ultrahealth.png" />
                </image>
             </ImageView>
             <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">

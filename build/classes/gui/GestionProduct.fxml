@@ -13,16 +13,16 @@
 
 <Pane fx:id="panetetbadel" prefHeight="624.8" prefWidth="972.0" style="-fx-background-color: #25fde9; -fx-border-color: #be894a; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GestionProduct">
    <children>
-      <VBox alignment="TOP_CENTER" prefHeight="620.0" prefWidth="970.0">
+      <VBox alignment="TOP_CENTER" prefHeight="620.0" prefWidth="970.0" style="-fx-background-color: black;">
          <children>
-            <TableView fx:id="booksTable" blendMode="SCREEN" prefHeight="300.0" prefWidth="50.0">
+            <TableView fx:id="booksTable" blendMode="SCREEN" prefHeight="300.0" prefWidth="50.0" style="-fx-background-color: #160D4F;">
                <VBox.margin>
                   <Insets left="20.0" right="20.0" top="20.0" />
                </VBox.margin>
             </TableView>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: black;">
                <children>
-                  <Label prefHeight="30.0" prefWidth="102.0" text="Search By">
+                  <Label prefHeight="30.0" prefWidth="102.0" text="Search By" textFill="WHITE">
                      <font>
                         <Font size="20.0" />
                      </font>

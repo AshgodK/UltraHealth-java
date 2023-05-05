@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="487.0" prefWidth="639.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.SingleQuestionController">
+   <children>
+      <Label fx:id="lblTitle" layoutX="28.0" layoutY="18.0" prefHeight="41.0" prefWidth="141.0">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblCategorie" layoutX="24.0" layoutY="66.0" prefHeight="30.0" prefWidth="65.0" textFill="#868181">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDate" layoutX="118.0" layoutY="66.0" prefHeight="30.0" prefWidth="65.0" textFill="#868181" />
+      <Label fx:id="lblContent" layoutX="24.0" layoutY="121.0" prefHeight="69.0" prefWidth="310.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="251.0" prefHeight="48.0" prefWidth="133.0" text="   Comment">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="commentTextArea" layoutX="24.0" layoutY="299.0" prefHeight="87.0" prefWidth="485.0" promptText="Add a comment..." wrapText="true">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextArea>
+      <Button fx:id="commentButton" layoutX="28.0" layoutY="406.0" mnemonicParsing="false" onAction="#addResponse" text="Comment" />
+      <Button fx:id="back" layoutX="416.0" layoutY="406.0" mnemonicParsing="false" onAction="#back" text="Back" />
+      <HBox layoutX="415.0" layoutY="103.0">
+         <children>
+            <Button fx:id="like" layoutX="25.0" layoutY="260.0" minHeight="50.0" minWidth="75.0" onAction="#Like" text="">
+               <graphic>
+                  <FontAwesomeIconView fx:id="likeb" fill="#4CAF50" glyphName="THUMBS_UP" onDragDetected="#Like" size="2em" />
+               </graphic>
+            </Button>
+            <Button fx:id="dislike" layoutX="110.0" layoutY="260.0" minHeight="50.0" minWidth="75.0" onAction="#disLike" text="">
+               <graphic>
+                  <FontAwesomeIconView fx:id="dislikeb" fill="#F44336" glyphName="THUMBS_DOWN" onDragDetected="#disLike" size="2em" />
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+      <HBox layoutX="416.0" layoutY="169.0" spacing="10">
+         <children>
+            <Label fx:id="liker" text="Likes: ">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="likecount" text="" />
+            <Label fx:id="disliker" text="Dislikes: ">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="dislikecounts" text="" />
+         </children>
+      </HBox>
+      <Button fx:id="show" layoutX="565.0" layoutY="406.0" mnemonicParsing="false" onAction="#showResponse" text="Show" />
+   </children>
+</AnchorPane>

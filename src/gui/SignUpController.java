@@ -310,7 +310,7 @@ Message message = new MimeMessage(session);
 message.setFrom(new InternetAddress(usernameMail));
 message.setRecipients(Message.RecipientType.TO,
 InternetAddress.parse(to));
-message.setSubject("PASSE");
+message.setSubject("compte");
 //message.setText("Bonjour, ce message est un test ...");
 // Etape 3 : Envoyer le message
 
@@ -318,10 +318,10 @@ Multipart multipart = new MimeMultipart();
 
 // create the text part
 MimeBodyPart textPart = new MimeBodyPart();
-textPart.setText("your pass has been created");
+textPart.setText("your account has been created");
 
 // create the pdf part
-//MimeBodyPart pdfPart = new MimeBodyPart();
+MimeBodyPart pdfPart = new MimeBodyPart();
 //pdfPart.attachFile(new File("D:/NetBeans/JavaApplication3/"+pdf+".pdf")); // specify the file path of the pdf
 
 // add the parts to the multipart message

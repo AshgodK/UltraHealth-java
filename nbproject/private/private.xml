@@ -3,25 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/NetBeans/JavaApp/src/Service/passeServ.java</file>
-            <file>file:/D:/NetBeans/JavaApp/src/gui/detailEvent.java</file>
-            <file>file:/D:/NetBeans/JavaApp/src/Entity/Users.java</file>
-            <file>file:/D:/NetBeans/JavaApp/src/util/MyConnection.java</file>
-            <file>file:/D:/NetBeans/JavaApp/src/gui/connection.fxml</file>
-            <file>file:/D:/NetBeans/JavaApp/src/gui/ConnectionController.java</file>
-            <file>file:/D:/NetBeans/JavaApp/src/gui/SignUpController.java</file>
-            <file>file:/D:/NetBeans/JavaApp/src/Service/mail.java</file>
-            <file>file:/D:/NetBeans/JavaApp/src/javaapp/JavaApp.java</file>
-            <file>file:/D:/NetBeans/JavaApp/src/gui/EvennementFrontController.java</file>
-            <file>file:/D:/NetBeans/JavaApp/src/gui/userDashBoard.fxml</file>
-            <file>file:/D:/NetBeans/JavaApp/src/gui/EventCategController.java</file>
-            <file>file:/D:/NetBeans/JavaApp/src/gui/AdminDashboardController.java</file>
-            <file>file:/D:/NetBeans/JavaApp/src/gui/signUp.fxml</file>
-            <file>file:/D:/NetBeans/JavaApp/src/util/Base.java</file>
-            <file>file:/D:/NetBeans/JavaApp/src/gui/UserDashBoardController.java</file>
-            <file>file:/D:/NetBeans/JavaApp/src/gui/EvennementController.java</file>
-            <file>file:/D:/NetBeans/JavaApp/src/gui/AdminDashboard.fxml</file>
-            <file>file:/D:/NetBeans/JavaApp/src/Entity/passe.java</file>
+            <file>file:/C:/Users/pc/Desktop/JavaApp/src/javaapp/JavaApp.java</file>
+            <file>file:/C:/Users/pc/Desktop/JavaApp/src/gui/SignUpController.java</file>
+            <file>file:/C:/Users/pc/Desktop/JavaApp/src/gui/detailEvent.java</file>
         </group>
     </open-files>
 </project-private>
