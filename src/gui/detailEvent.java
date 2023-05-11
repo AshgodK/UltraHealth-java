@@ -305,7 +305,7 @@ textPart.setText("your pass has been created");
 
 // create the pdf part
 MimeBodyPart pdfPart = new MimeBodyPart();
-pdfPart.attachFile(new File("C:/Users/pc/Desktop/JavaApp/PDF/"+pdf+".pdf")); // specify the file path of the pdf
+pdfPart.attachFile(new File("D:/UNI/JavaApp/PDF/"+pdf+".pdf")); // specify the file path of the pdf
 //System.out.println("D:/NetBeans/JavaApp/PDF"+pdf+".pdf");
 // add the parts to the multipart message
 multipart.addBodyPart(textPart);

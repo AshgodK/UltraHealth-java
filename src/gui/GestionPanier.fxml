@@ -6,6 +6,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -13,9 +15,14 @@
 
 <Pane fx:id="panetetbadel" prefHeight="658.0" prefWidth="972.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #25fde9; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GestionPanier">
    <children>
+      <ImageView fitHeight="668.0" fitWidth="1051.0" layoutX="-22.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/IconePI/background.jpg" />
+         </image>
+      </ImageView>
       <VBox alignment="TOP_CENTER" prefHeight="656.0" prefWidth="970.0">
          <children>
-            <TableView fx:id="reservationsTable" prefHeight="300.0" prefWidth="50.0">
+            <TableView fx:id="reservationsTable" prefHeight="300.0" prefWidth="50.0" style="-fx-background-color: transparent;">
                <VBox.margin>
                   <Insets left="20.0" right="20.0" top="20.0" />
                </VBox.margin>
@@ -35,18 +42,18 @@
                   <TextField fx:id="searchby" onKeyTyped="#searchkeypressed" prefWidth="200.0" />
                </children>
             </HBox>
-            <Button fx:id="pdf" mnemonicParsing="false" onAction="#pdf" prefHeight="38.0" prefWidth="186.0" style="-fx-background-color: #25fde9;" styleClass="hoverClass" text="Pdf" />
-            <Button mnemonicParsing="false" onAction="#AddReservation" prefHeight="35.0" prefWidth="190.0" style="-fx-background-color: #25fde9;" styleClass="hoverClass" text="Add Reservation">
+            <Button fx:id="pdf" mnemonicParsing="false" onAction="#pdf" prefHeight="38.0" prefWidth="186.0" style="-fx-border-color: #4A85ED; -fx-background-color: transparent; -fx-border-radius: 5px;" styleClass="hoverClass" text="Pdf" />
+            <Button mnemonicParsing="false" onAction="#AddReservation" prefHeight="35.0" prefWidth="190.0" style="-fx-border-color: #4A85ED; -fx-background-color: transparent; -fx-border-radius: 5px;" styleClass="hoverClass" text="Add Reservation">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#UpdateReservation" prefHeight="35.0" prefWidth="190.0" style="-fx-background-color: #25fde9;" styleClass="hoverClass" text="Update Selected Reservation">
+            <Button mnemonicParsing="false" onAction="#UpdateReservation" prefHeight="35.0" prefWidth="190.0" style="-fx-border-color: #4A85ED; -fx-background-color: transparent; -fx-border-radius: 5px;" styleClass="hoverClass" text="Update Selected Reservation">
                <VBox.margin>
                   <Insets top="30.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#DeleteReservation" prefHeight="35.0" prefWidth="190.0" style="-fx-background-color: #25fde9;" styleClass="hoverClass" text="Delete Selected Reservation">
+            <Button mnemonicParsing="false" onAction="#DeleteReservation" prefHeight="35.0" prefWidth="190.0" style="-fx-border-color: #4A85ED; -fx-background-color: transparent; -fx-border-radius: 5px;" styleClass="hoverClass" text="Delete Selected Reservation">
                <VBox.margin>
                   <Insets top="30.0" />
                </VBox.margin>

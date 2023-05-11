@@ -20,6 +20,7 @@ import com.google.zxing.qrcode.QRCodeWriter;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.net.Authenticator;
 import java.net.PasswordAuthentication;
@@ -54,6 +55,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javax.mail.Address;
 import javax.mail.Message;
@@ -116,6 +118,10 @@ public class EvennementController implements Initializable {
     private Button ProfileB;
     @FXML
     private Button QRCODE;
+    @FXML
+    private Button imgbutton;
+    
+    private String imgP=null;
 
     /**
      * Initializes the controller class.
@@ -153,8 +159,19 @@ public class EvennementController implements Initializable {
             ex.printStackTrace();
         }
     });
+    
+    
         
-    }  
+    }
+    
+    @FXML
+   private void imgPick(javafx.event.ActionEvent event) 
+   {
+       FileChooser fc =new FileChooser();
+    File file=fc.showOpenDialog(null);
+        System.out.println(file.getAbsolutePath());
+        imgP=file.getAbsolutePath();
+   }
     
     @FXML
     private void ajouter(javafx.event.ActionEvent event) 
@@ -211,6 +228,7 @@ public class EvennementController implements Initializable {
              newEvent.setAdresse(adre);
               newEvent.setPrix(Float.parseFloat(price));
                newEvent.setNbrP(Integer.parseInt(nbP));
+               newEvent.setEventimg(imgP);
              Evnt.AjouterEvent(newEvent,cat);
              
          

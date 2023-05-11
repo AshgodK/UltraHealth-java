@@ -12,7 +12,7 @@
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Adminhome">
    <children>
-      <VBox alignment="TOP_CENTER" prefHeight="720.0" prefWidth="300.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #25fde9; -fx-border-width: 6;">
+      <VBox alignment="TOP_CENTER" prefHeight="720.0" prefWidth="300.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #4A85ED; -fx-border-width: 6;">
          <children>
             <ImageView fx:id="profilepic" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" style="-fx-background-radius: 150;">
                <image>
@@ -31,34 +31,34 @@
                </VBox.margin></Label>
             <VBox alignment="TOP_CENTER" prefHeight="379.0" prefWidth="292.0" spacing="30.0">
                <children>
-                  <Button layoutX="81.0" layoutY="126.0" mnemonicParsing="false" onAction="#changepagemanagebooks" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #25fde9;" styleClass="hoverClass" text="Manage Products" />
-                  <Button fx:id="ggggg" layoutX="81.0" layoutY="60.0" mnemonicParsing="false" onAction="#changepagemanageaccount" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #25fde9;" styleClass="hoverClass" text="Manage Accounts" />
-                  <Button layoutX="81.0" layoutY="192.0" mnemonicParsing="false" onAction="#changepagemanagecategories" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #25fde9;" styleClass="hoverClass" text="Manage Categories" />
+                  <Button layoutX="81.0" layoutY="126.0" mnemonicParsing="false" onAction="#changepagemanagebooks" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-border-radius: 5px; -fx-border-color: #4A85ED;" styleClass="hoverClass" text="Manage Products" />
+                  <Button fx:id="ggggg" layoutX="81.0" layoutY="60.0" mnemonicParsing="false" onAction="#changepagemanageaccount" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-border-radius: 5px; -fx-border-color: #4A85ED;" styleClass="hoverClass" text="Manage Accounts" />
+                  <Button layoutX="81.0" layoutY="192.0" mnemonicParsing="false" onAction="#changepagemanagecategories" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-border-radius: 5px; -fx-border-color: #4A85ED;" styleClass="hoverClass" text="Manage Categories" />
                </children>
                <padding>
                   <Insets top="50.0" />
                </padding>
             </VBox>
-            <Button mnemonicParsing="false" onAction="#logout" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #25fde9 ;" styleClass="hoverClass" text="Logout">
+            <Button mnemonicParsing="false" onAction="#logout" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-border-radius: 5px; -fx-border-color: #4A85ED;" styleClass="hoverClass" text="Logout">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
             </Button>
          </children>
       </VBox>
-      <VBox prefHeight="720.0" prefWidth="980.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #25fde9 ; -fx-border-width: 4;">
+      <VBox prefHeight="720.0" prefWidth="980.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #4A85ED; -fx-border-width: 4;">
          <children>
             <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../Downloads/331936351_3529688450642625_3445023389678489015_n.png" />
-                     </image>
                      <HBox.margin>
                         <Insets right="300.0" />
                      </HBox.margin>
+                     <image>
+                        <Image url="@images/ultrahealth.png" />
+                     </image>
                   </ImageView>
-                  <Button maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: black; -fx-border-color: #be894a; -fx-border-width: 3; -fx-border-radius: 40; -fx-cursor: pointer;" styleClass="hoverClass" text="X" textFill="#25fde9">
+                  <Button maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: trn; -fx-border-color: #4A85ED; -fx-border-width: 3; -fx-border-radius: 40; -fx-cursor: pointer;" styleClass="hoverClass" text="X" textFill="#4a85ed">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
@@ -72,7 +72,7 @@
                <children>
                   <VBox alignment="TOP_CENTER" prefHeight="625.0" prefWidth="973.0">
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="296.0" prefWidth="994.0" text="Welcome " textAlignment="CENTER" textFill="#4a97bd">
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="117.0" prefWidth="974.0" text="Welcome " textAlignment="CENTER" textFill="#4a97bd">
                            <font>
                               <Font name="System Bold" size="35.0" />
                            </font>
@@ -80,6 +80,11 @@
                               <Insets />
                            </VBox.margin>
                         </Label>
+                        <ImageView fitHeight="667.0" fitWidth="972.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/IconePI/background.jpg" />
+                           </image>
+                        </ImageView>
                      </children>
                   </VBox>
                </children>

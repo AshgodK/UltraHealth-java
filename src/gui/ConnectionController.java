@@ -68,6 +68,7 @@ public class ConnectionController implements Initializable {
             System.err.println("MySQL JDBC driver not found: " + e.getMessage());
         }
         String sqlQuery = "SELECT * FROM users where lastname = '"+this.lastNameField.getText()+"' AND password = '"+this.passwordField.getText()+"'";
+        System.out.println(sqlQuery);
         res = this.db.useStatment(sqlQuery);
         if(res.next()){
             this.user.setId(res.getInt(1));
@@ -80,19 +81,19 @@ public class ConnectionController implements Initializable {
             this.user.setEmail(res.getString(8));
             this.user.setPassword(res.getString(9));
             this.user.setToken(res.getString(10));
+            System.out.println(this.user.toString());
             if(this.user.getRole().equals("ADMIN")){
             
                 String token = this.user.session();
                 System.out.println("token :" + token);
                 sqlQuery = "UPDATE users SET token = '"+token+"' WHERE id = '"+this.user.getId()+"' ";
-               int reslt = this.db.insertIntoBase(sqlQuery);
+                int reslt = this.db.insertIntoBase(sqlQuery);
                if(reslt == 1 ){
-                System.out.println("succes ! ");
-                this.user = new Users(this.user.getId(),this.user.getCin(),this.user.getFirstName(),this.user.getLastName(),this.user.getZone(),this.user.getBirthDay(),this.user.getRole(),this.user.getEmail(),this.user.getPassword(),this.user.getToken());
-                System.out.println(this.user.toString());
-                JavaApp.setRoot("adminDashboard");
-                
-                return this.user;
+                    System.out.println("succes ! ");
+                    this.user = new Users(this.user.getId(),this.user.getCin(),this.user.getFirstName(),this.user.getLastName(),this.user.getZone(),this.user.getBirthDay(),this.user.getRole(),this.user.getEmail(),this.user.getPassword(),this.user.getToken());
+                    System.out.println(this.user.toString());
+                    JavaApp.setRoot("adminDashboard");
+                    return this.user;
                }else{
                 System.out.println("faild ! ");
                }
@@ -106,7 +107,7 @@ public class ConnectionController implements Initializable {
                if(reslt == 1 ){
                 System.out.println("succes ! ");
                 this.user = new Users(this.user.getId(),this.user.getCin(),this.user.getFirstName(),this.user.getLastName(),this.user.getZone(),this.user.getBirthDay(),this.user.getRole(),this.user.getEmail(),this.user.getPassword(),this.user.getToken());
-                System.out.println(this.user.toString());
+               // System.out.println(this.user.toString());
                 JavaApp.setRoot("userDashBoard");
                 idU=this.user.getId();
                 System.out.println(idU );
@@ -119,12 +120,13 @@ public class ConnectionController implements Initializable {
         }else{
             System.out.println("account do not exist ! ");
         }
-        this.user.toString();
+       //this.user.toString();
 
         return user;
     }
 
     
+    @FXML
     public void signUpClicked() throws IOException {
         JavaApp.setRoot("signUp");
     }

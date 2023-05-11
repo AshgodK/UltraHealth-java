@@ -1,21 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Entity;
 
-/**
- *
- * @author ASUS
- */
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.Objects;
+
 public class Rendezvous {
     private Integer id;
-   private String date_rdv; 
-   private String etat, message, type_lieu;
+    private LocalDateTime date_rdv;
+    private LocalTime heure;
 
-    @Override
-    public String toString() {
-        return "Rendezvous{" + "id=" + id + ", date_rdv=" + date_rdv + ", etat=" + etat + ", message=" + message + ", type_lieu=" + type_lieu + '}';
+    public Rendezvous() {
+    }
+
+    public Rendezvous(Integer id, LocalDateTime date_rdv, LocalTime heure) {
+        this.id = id;
+        this.date_rdv = date_rdv;
+        this.heure = heure;
     }
 
     public Integer getId() {
@@ -26,54 +26,52 @@ public class Rendezvous {
         this.id = id;
     }
 
-    public String getDate_rdv() {
+    public LocalDateTime getDate_rdv() {
         return date_rdv;
     }
 
-    public void setDate_rdv(String date_rdv) {
+    public void setDate_rdv(LocalDateTime date_rdv) {
         this.date_rdv = date_rdv;
     }
 
-    public String getEtat() {
-        return etat;
+    public LocalTime getHeure() {
+        return heure;
     }
 
-    public void setEtat(String etat) {
-        this.etat = etat;
+    public void setHeure(LocalTime heure) {
+        this.heure = heure;
     }
 
-    public String getMessage() {
-        return message;
+    
+      
+    
+    
+    @Override
+    public String toString() {
+        return "Rendezvous{" +
+                "id=" + id +
+                ", date_rdv=" + date_rdv +
+                ", heure=" + heure +
+                '}';
     }
 
-    public Rendezvous() {
-    }
 
-    public void setMessage(String message) {
-        this.message = message;
+    @Override
+public boolean equals(Object obj) {
+    if (this == obj) {
+        return true;
     }
-
-    public String getType_lieu() {
-        return type_lieu;
+    if (obj == null || getClass() != obj.getClass()) {
+        return false;
     }
+    Rendezvous rendezvous = (Rendezvous) obj;
+    return id.equals(rendezvous.id);
+}
 
-    public void setType_lieu(String type_lieu) {
-        this.type_lieu = type_lieu;
-    }
+@Override
+public int hashCode() {
+    return Objects.hash(id);
+}
 
-    public Rendezvous(Integer id, String date_rdv, String etat, String message, String type_lieu) {
-        this.id = id;
-        this.date_rdv = date_rdv;
-        this.etat = etat;
-        this.message = message;
-        this.type_lieu = type_lieu;
-    }
-
-    public Rendezvous(String date_rdv, String etat, String message, String type_lieu) {
-        this.date_rdv = date_rdv;
-        this.etat = etat;
-        this.message = message;
-        this.type_lieu = type_lieu;
-    }
-
+    
 }

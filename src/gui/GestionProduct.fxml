@@ -6,21 +6,28 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="panetetbadel" prefHeight="624.8" prefWidth="972.0" style="-fx-background-color: #25fde9; -fx-border-color: #be894a; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GestionProduct">
+<Pane fx:id="panetetbadel" prefHeight="616.0" prefWidth="959.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GestionProduct">
    <children>
-      <VBox alignment="TOP_CENTER" prefHeight="620.0" prefWidth="970.0" style="-fx-background-color: black;">
+      <ImageView fitHeight="651.0" fitWidth="1065.0" layoutX="-12.0" layoutY="-15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/IconePI/background.jpg" />
+         </image>
+      </ImageView>
+      <VBox alignment="TOP_CENTER" prefHeight="620.0" prefWidth="995.0" style="-fx-background-color: transparent;">
          <children>
-            <TableView fx:id="booksTable" blendMode="SCREEN" prefHeight="300.0" prefWidth="50.0" style="-fx-background-color: #160D4F;">
+            <TableView fx:id="booksTable" blendMode="SCREEN" prefHeight="297.0" prefWidth="929.0" style="-fx-background-color: transparent;">
                <VBox.margin>
                   <Insets left="20.0" right="20.0" top="20.0" />
                </VBox.margin>
             </TableView>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: black;">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: transparent;">
                <children>
                   <Label prefHeight="30.0" prefWidth="102.0" text="Search By" textFill="WHITE">
                      <font>
@@ -32,21 +39,21 @@
                         <Insets right="50.0" />
                      </HBox.margin>
                   </ChoiceBox>
-                  <TextField fx:id="searchby" onKeyTyped="#searchkeypressed" prefWidth="200.0" />
+                  <TextField fx:id="searchby" onKeyTyped="#searchkeypressed" prefWidth="200.0" style="-fx-border-radius: 5px; -fx-border-color: #4A85ED;" />
                </children>
             </HBox>
-            <Button fx:id="panier" mnemonicParsing="false" onAction="#GOpanier" prefHeight="34.0" prefWidth="150.0" style="-fx-background-color: #FFFFFF;" styleClass="hoverClass" text="Panier" />
-            <Button mnemonicParsing="false" onAction="#AddBook" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #FFFFFF;" styleClass="hoverClass" text="Add Product">
+            <Button fx:id="panier" mnemonicParsing="false" onAction="#GOpanier" prefHeight="34.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-border-color: #4A85ED; -fx-border-radius: 5px;" styleClass="hoverClass" text="Panier" />
+            <Button mnemonicParsing="false" onAction="#AddBook" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-border-color: #4A85ED; -fx-border-radius: 5px;" styleClass="hoverClass" text="Add Product">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#UpdateBook" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #FFFFFF;" styleClass="hoverClass" text="Update Selected Product">
+            <Button mnemonicParsing="false" onAction="#UpdateBook" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-border-color: #4A85ED; -fx-border-radius: 5px;" styleClass="hoverClass" text="Update Selected Product">
                <VBox.margin>
                   <Insets top="30.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#DeleteBook" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #BE#FFFFFF894A;" styleClass="hoverClass" text="Delete Selected Product">
+            <Button mnemonicParsing="false" onAction="#DeleteBook" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-border-color: #4A85ED; -fx-border-radius: 5px;" styleClass="hoverClass" text="Delete Selected Product">
                <VBox.margin>
                   <Insets top="30.0" />
                </VBox.margin>

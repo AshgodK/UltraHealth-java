@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RendezvousController">
+    <children>
+        <TableView fx:id="tablerendez" layoutX="362.0" layoutY="162.0" onMouseClicked="#selection" prefHeight="200.0" prefWidth="372.0" style="-fx-background-color: tr;">
+            <columns>
+                <TableColumn fx:id="idt" prefWidth="75.0" text="id" />
+                <TableColumn fx:id="datet" prefWidth="75.0" text="date" />
+                <TableColumn fx:id="heuret" prefWidth="100" text="Heure" />
+            </columns>
+        </TableView>
+      <ImageView fitHeight="548.0" fitWidth="750.0" layoutX="-9.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/IconePI/background.jpg" />
+         </image>
+      </ImageView>
+        <Label layoutX="84.0" layoutY="217.0" text="Date" />
+        <Label layoutX="85.0" layoutY="262.0" text="Heure" />
+        <DatePicker fx:id="date" layoutX="123.0" layoutY="213.0" />
+        <Button fx:id="ajou" layoutX="183.0" layoutY="499.0" mnemonicParsing="false" onAction="#Ajouter" style="-fx-background-color: transparent; -fx-border-color: #4a85ed;" text="ajouter" />
+        <Button fx:id="vid" layoutX="514.0" layoutY="499.0" mnemonicParsing="false" onAction="#vider" style="-fx-background-color: transparent; -fx-border-color: #4a85ed;" text="vider" />
+        <Button fx:id="sup" layoutX="297.0" layoutY="499.0" mnemonicParsing="false" onAction="#suprimer" style="-fx-background-color: transparent; -fx-border-color: #4a85ed;" text="suprimer" />
+        <Button fx:id="modi" layoutX="412.0" layoutY="499.0" mnemonicParsing="false" onAction="#modifier" style="-fx-background-color: transparent; -fx-border-color: #4a85ed;" text="modifier" />
+      <Text layoutX="485.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des Rendezvous" />
+      <TextField fx:id="timeH" layoutX="124.0" layoutY="319.0" />
+      <Spinner fx:id="heureSpinner" layoutX="138.0" layoutY="259.0" />
+      <ImageView fx:id="home" fitHeight="65.0" fitWidth="65.0" layoutX="10.0" layoutY="4.0" onMouseClicked="#goHome" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/IconePI/home.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="consult" layoutX="650.0" layoutY="499.0" mnemonicParsing="false" onAction="#vider" onMouseClicked="#goconsult" style="-fx-background-color: transparent; -fx-border-color: #4a85ed;" text="consultation" />
+    </children>
+</AnchorPane>

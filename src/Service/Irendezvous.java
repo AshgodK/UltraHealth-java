@@ -4,6 +4,8 @@
  */
 package Service;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 /**
@@ -13,8 +15,9 @@ import java.util.List;
  */
 public interface Irendezvous <R> {
      public void Ajouterrendezvous(R r);
-      public void modifierrendezvous(R l,int id, String etat,String message,String type_lieu,String date  );
+      public void modifierrendezvous(R l,int id, LocalDateTime date_rdv, LocalTime heure );
       public void supprimerrendez (R r);
       public List<R>Recuperer();
     
 }
+

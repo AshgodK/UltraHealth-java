@@ -191,8 +191,9 @@ private String passwordMail = "degfppsysconhzft";
 
         int res = this.db.insertIntoBase(sqlQuery);
         if(res==1){
+            System.out.println(res);
             System.out.println("Console add /> add with success");
-            envoyer(this.email);
+            //envoyer(this.email);
         }else{
             System.out.println("Console add /> Error Fail");
         }

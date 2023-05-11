@@ -6,6 +6,7 @@ package Gui;
 
 import Model.Response;
 import Service.ServiceResponse;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
 import java.util.List;
@@ -15,7 +16,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
@@ -26,6 +30,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
@@ -50,6 +56,8 @@ public class ShowResponseController implements Initializable {
     private TableColumn<Response, Date> tcdate;
     @FXML
     private TextField searchField;
+    @FXML
+    private ImageView home;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
@@ -134,5 +142,20 @@ Service.ServiceResponse sc = new ServiceResponse();
     List<Response> searchResults = service.searchBy(query);
     tftableview.setItems(FXCollections.observableArrayList(searchResults));
 }
+
+    @FXML
+    private void goHome(MouseEvent event) {
+         try {
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/FXMLDocument.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) home.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
     
 }

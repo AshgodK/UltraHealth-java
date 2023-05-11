@@ -4,23 +4,30 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" prefHeight="514.0" prefWidth="682.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ConsultationController">
    <children>
+      <ImageView fitHeight="528.0" fitWidth="687.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/IconePI/background.jpg" />
+         </image>
+      </ImageView>
       <Text fx:id="nom2" layoutX="22.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom" />
       <Text fx:id="prenom2" layoutX="14.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prenom" />
       <Text fx:id="numero2" layoutX="12.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="numerso seance" />
       <Text fx:id="description2" layoutX="18.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
-      <Button fx:id="ajout" layoutX="140.0" layoutY="392.0" mnemonicParsing="false" onAction="#ajout" text="Ajouter" />
+      <Button fx:id="ajout" layoutX="140.0" layoutY="392.0" mnemonicParsing="false" onAction="#ajout" style="-fx-background-color: transparent; -fx-border-color: #4A85ED;" text="Ajouter" />
       <TextField fx:id="nom" layoutX="103.0" layoutY="86.0" />
       <TextField fx:id="prenom" layoutX="105.0" layoutY="141.0" />
       <TextField fx:id="numero" layoutX="105.0" layoutY="190.0" />
       <TextField fx:id="description" layoutX="105.0" layoutY="236.0" />
-      <Button layoutX="222.0" layoutY="392.0" mnemonicParsing="false" onAction="#modifierCons" onMouseClicked="#modifierCons" text="Modifier" />
-      <Button layoutX="307.0" layoutY="392.0" mnemonicParsing="false" onAction="#supprimerCons" onMouseClicked="#home" text="Supprimer" />
-      <Button layoutX="397.0" layoutY="392.0" mnemonicParsing="false" onAction="#vider" text="Vider" />
+      <Button layoutX="222.0" layoutY="392.0" mnemonicParsing="false" onAction="#modifierCons" onMouseClicked="#modifierCons" style="-fx-background-color: transparent; -fx-border-color: #4A85ED;" text="Modifier" />
+      <Button layoutX="307.0" layoutY="392.0" mnemonicParsing="false" onAction="#supprimerCons" style="-fx-background-color: transparent; -fx-border-color: #4A85ED;" text="Supprimer" />
+      <Button layoutX="397.0" layoutY="392.0" mnemonicParsing="false" onAction="#vider" style="-fx-background-color: transparent; -fx-border-color: #4A85ED;" text="Vider" />
       <TableView fx:id="tableconsul" layoutX="291.0" layoutY="90.0" onMouseClicked="#selection" prefHeight="200.0" prefWidth="377.0">
         <columns>
           <TableColumn fx:id="tableviewId" prefWidth="75.0" text="Id" />
@@ -30,7 +37,7 @@
             <TableColumn fx:id="tableviewDesc" prefWidth="75.0" text="Description" />
         </columns>
       </TableView>
-      <Button fx:id="home" layoutX="619.0" layoutY="474.0" mnemonicParsing="false" onMouseClicked="#home" text="Home" />
-      <Button fx:id="createPdf" layoutX="291.0" layoutY="311.0" mnemonicParsing="false" onAction="#CreatePDF" text="CreatePdf" />
+      <Button fx:id="rz" layoutX="609.0" layoutY="392.0" mnemonicParsing="false" onAction="#vider" onMouseClicked="#gorz" style="-fx-background-color: transparent; -fx-border-color: #4A85ED;" text="rendezV" />
+      <Button fx:id="chat" layoutX="609.0" layoutY="435.0" mnemonicParsing="false" onAction="#vider" onMouseClicked="#goChat" style="-fx-background-color: transparent; -fx-border-color: #4A85ED;" text="CHAT" />
    </children>
 </AnchorPane>

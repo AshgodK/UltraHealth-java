@@ -33,8 +33,8 @@ public class EvennementServ extends Evennement
     {
      try {
           cnx=MyConnection.getInstance().getCnx();
-          String req = "insert into evennement(date_debut,  date_fin, adresse, category_id, titre, description,prix,nbrP)"
-                        +"values('"+e.getDate_deb()+"','"+e.getDate_fin()+"','"+e.getAdresse()+"','"+id_cat+"','"+e.getTitre()+"','"+e.getDescription()+"','"+e.getPrix()+"','"+e.getNbrP()+"')";
+          String req = "insert into evennement(date_debut,  date_fin, zone, category_id, titre, description,prix,nbr_passe,eventimg)"
+                        +"values('"+e.getDate_deb()+"','"+e.getDate_fin()+"','"+e.getAdresse()+"','"+id_cat+"','"+e.getTitre()+"','"+e.getDescription()+"','"+e.getPrix()+"','"+e.getNbrP()+"','"+e.getEventimg()+"')";
                 Statement st = cnx.createStatement();
                 st.executeUpdate(req);
                 System.out.println("event ajouter avec succ");
@@ -58,11 +58,11 @@ public class EvennementServ extends Evennement
                    Long id = rs.getLong("id");
         String date_debut = rs.getString("date_debut");
         String date_fin = rs.getString("date_fin");
-        String adresse = rs.getString("adresse");
+        String adresse = rs.getString("zone");
         int category_id = rs.getInt("category_id");
         String titre = rs.getString("titre");
         String decription = rs.getString("description");
-        int nbrP = rs.getInt("nbrP");
+        int nbrP = rs.getInt("nbr_passe");
         float priceE = rs.getFloat("prix");
         
         
@@ -94,7 +94,7 @@ public class EvennementServ extends Evennement
     try {
         cnx = MyConnection.getInstance().getCnx();
         
-        String req = "UPDATE evennement SET titre=?, description=?, date_debut=?, date_fin=?, category_id=?, adresse=? WHERE id=?";
+        String req = "UPDATE evennement SET titre=?, description=?, date_debut=?, date_fin=?, category_id=?, zone=? WHERE id=?";
         PreparedStatement pst = cnx.prepareStatement(req);
           
         pst.setString(1, e.getTitre());
@@ -139,11 +139,11 @@ public class EvennementServ extends Evennement
                    Long id = rs.getLong("id");
         String date_debut = rs.getString("date_debut");
         String date_fin = rs.getString("date_fin");
-        String adresse = rs.getString("adresse");
+        String adresse = rs.getString("zone");
         int category_id = rs.getInt("category_id");
         String titre = rs.getString("titre");
         String decription = rs.getString("description");
-                   int nbrP = rs.getInt("nbrP");
+                   int nbrP = rs.getInt("nbr_passe");
         float priceE = rs.getFloat("prix");
         
         
@@ -186,12 +186,12 @@ ResultSet rs = pst.executeQuery();
                    Long id = rs.getLong("id");
         String date_debut = rs.getString("date_debut");
         String date_fin = rs.getString("date_fin");
-        String adresse = rs.getString("adresse");
+        String adresse = rs.getString("zone");
         int category_id = rs.getInt("category_id");
         String titre = rs.getString("titre");
         String decription = rs.getString("description");
         
-                   int nbrP = rs.getInt("nbrP");
+                   int nbrP = rs.getInt("nbr_passe");
         float priceE = rs.getFloat("prix");
         
         
@@ -234,12 +234,12 @@ ResultSet rs = pst.executeQuery();
                    Long id = rs.getLong("id");
         String date_debut = rs.getString("date_debut");
         String date_fin = rs.getString("date_fin");
-        String adresse = rs.getString("adresse");
+        String adresse = rs.getString("zone");
         int category_id = rs.getInt("category_id");
         String titre = rs.getString("titre");
         String decription = rs.getString("description");
     
-                   int nbrP = rs.getInt("nbrP");
+                   int nbrP = rs.getInt("nbr_passe");
         float priceE = rs.getFloat("prix");
         
         
@@ -282,12 +282,12 @@ ResultSet rs = pst.executeQuery();
                    Long id = rs.getLong("id");
         String date_debut = rs.getString("date_debut");
         String date_fin = rs.getString("date_fin");
-        String adresse = rs.getString("adresse");
+        String adresse = rs.getString("zone");
         int category_id = rs.getInt("category_id");
         String titre = rs.getString("titre");
         String decription = rs.getString("description");
         
-                   int nbrP = rs.getInt("nbrP");
+                   int nbrP = rs.getInt("nbr_passe");
         float priceE = rs.getFloat("prix");
         
         
@@ -320,7 +320,7 @@ ResultSet rs = pst.executeQuery();
     {
         try {
           cnx=MyConnection.getInstance().getCnx();
-            String req = " UPDATE evennement SET " + " nbrP=nbrP-1  where id = ? ";
+            String req = " UPDATE evennement SET " + " nbr_passe=nbr_passe-1  where id = ? ";
             PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(req);           
                pst.setLong(1, i);              
             pst.executeUpdate();
@@ -337,12 +337,12 @@ ResultSet rs = pst.executeQuery();
        int nbrP=0;
     try {
         cnx = MyConnection.getInstance().getCnx();
-        String req = "SELECT nbrP FROM evennement WHERE id = ?";
+        String req = "SELECT nbr_passe FROM evennement WHERE id = ?";
         PreparedStatement ps = cnx.prepareStatement(req);
         ps.setInt(1, id);
         ResultSet rs = ps.executeQuery();
         if (rs.next()) {
-            nbrP = rs.getInt("nbrP");
+            nbrP = rs.getInt("nbr_passe");
         }
     } catch (SQLException ex) {
         System.out.println(ex.getMessage());
@@ -362,11 +362,11 @@ ResultSet rs = pst.executeQuery();
             Long id = rs.getLong("id");
             String date_debut = rs.getString("date_debut");
             String date_fin = rs.getString("date_fin");
-            String adresse = rs.getString("adresse");
+            String adresse = rs.getString("zone");
             int category_id = rs.getInt("category_id");
             String titre = rs.getString("titre");
             String decription = rs.getString("description");
-            int nbrP = rs.getInt("nbrP");
+            int nbrP = rs.getInt("nbr_passe");
             float priceE = rs.getFloat("prix");
 
             e.setId(id);

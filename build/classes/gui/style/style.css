@@ -40,3 +40,7 @@
 .scroll-pane > .corner {
     -fx-background-color: black;
 }
+.table-view:focused {
+    -fx-background-color: transparent;
+}
+

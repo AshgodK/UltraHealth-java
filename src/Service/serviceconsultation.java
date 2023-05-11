@@ -7,6 +7,7 @@ package Service;
 
 import Entity.Consultation;
 import Entity.Rendezvous;
+import util.MyConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,7 +16,6 @@ import java.sql.Statement;
 import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import util.ConnectionRdv;
 
 /**
  *
@@ -27,7 +27,7 @@ public class serviceconsultation implements Iconsultation<Consultation>
     Connection cnxfl;
 
     public serviceconsultation() {
-                cnxfl=ConnectionRdv.getInstance().getCnx();
+                cnxfl=MyConnection.getInstance().getCnx();
     }
 
    
@@ -53,7 +53,7 @@ public class serviceconsultation implements Iconsultation<Consultation>
     public void modifierconsultation(Consultation l,String nom, String prenom, int num_seance, String description) {
          try {
             String req = "UPDATE consultation SET " + "  nom=?, prenom= ? ,numero=? ,description=?  where id=" + l.getId();
-            PreparedStatement pst = ConnectionRdv.getInstance().getCnx().prepareStatement(req);
+            PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(req);
           
             
           
@@ -76,7 +76,7 @@ public class serviceconsultation implements Iconsultation<Consultation>
     public void supprimerconsultation(Consultation c) {
         try {
             String req = "DELETE FROM consultation WHERE id=" + c.getId();
-            Statement st = ConnectionRdv.getInstance().getCnx().createStatement();
+            Statement st = MyConnection.getInstance().getCnx().createStatement();
 
             st.executeUpdate(req);
             System.out.println(" la consultation est   supprimé !");
@@ -93,7 +93,7 @@ public class serviceconsultation implements Iconsultation<Consultation>
         try {
 
             String requete2 = "Select  id,nom,prenom,numero, description  FROM consultation";
-            Statement st = ConnectionRdv.getInstance().getCnx().createStatement();
+            Statement st = MyConnection.getInstance().getCnx().createStatement();
             ResultSet rs = st.executeQuery(requete2);
             while (rs.next()) {
                     Consultation con = new Consultation();

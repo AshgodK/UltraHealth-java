@@ -36,6 +36,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
@@ -75,6 +77,10 @@ public class ShowQuestionController implements Initializable {
     private Button remove;
          @FXML
     private Button btndate;
+           @FXML
+    private Button btnstats;
+    @FXML
+    private ImageView home;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -88,10 +94,6 @@ public class ShowQuestionController implements Initializable {
   
     
     }    
-    
-    
-    
-    
     
     
     
@@ -135,7 +137,8 @@ public ObservableList<Question> getQuestionList() {
     return questionList;
 }
      
-public void showQuestion() {
+    @FXML
+    public void showQuestion() {
     ObservableList<Question> list = getQuestionList();
         
     colTitle.setCellValueFactory(new PropertyValueFactory<Question,String>("title"));
@@ -149,7 +152,8 @@ public void showQuestion() {
 
 }
 
-public void redirectUpdate(javafx.event.ActionEvent event) throws IOException{
+    @FXML
+    public void redirectUpdate(javafx.event.ActionEvent event) throws IOException{
          if ( tvQuestion.getSelectionModel().getSelectedItem()== null) {
         // show an error message if no post is selected
         Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -172,7 +176,8 @@ public void redirectUpdate(javafx.event.ActionEvent event) throws IOException{
    
 }
 
-public void redirectSingle(javafx.event.ActionEvent event) throws IOException{
+    @FXML
+    public void redirectSingle(javafx.event.ActionEvent event) throws IOException{
          if ( tvQuestion.getSelectionModel().getSelectedItem()== null) {
         // show an error message if no post is selected
         Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -253,7 +258,7 @@ int questionId = tvQuestion.getSelectionModel().getSelectedItem().getId();
  
    @FXML
     private void displayStats(javafx.event.ActionEvent event) throws IOException {
-         FXMLLoader loader = new FXMLLoader(getClass().getResource("stats.fxml"));
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Gui/stats.fxml"));
             Parent root = loader.load();
             
             Scene scene = new Scene(root);
@@ -289,7 +294,8 @@ public ObservableList<Question> orderList() {
     return questionList;
 }
 
-public void OderQuestion() {
+    @FXML
+    public void OderQuestion() {
     ObservableList<Question> list = orderList();
         
     colTitle.setCellValueFactory(new PropertyValueFactory<Question,String>("title"));
@@ -302,5 +308,20 @@ public void OderQuestion() {
    
 
 }
+
+    @FXML
+    private void goHome(MouseEvent event) {
+        try {
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/FXMLDocument.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) home.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 
 }

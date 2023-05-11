@@ -227,21 +227,8 @@ public class UserDashBoardController implements Initializable {
         
         int reslt = this.db.insertIntoBase(sqlQuery);
         if(reslt == 1 ){
-            System.out.println("succes ! ");
+            System.out.println("log out succes ! ");
             JavaApp.setRoot("connection");
-            System.out.println("succes ! ");
-            try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/connection.fxml"));
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-                Stage stage = (Stage) eventKey.getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-
             
         }else{
             System.out.println("failed ! ");
@@ -267,7 +254,7 @@ public class UserDashBoardController implements Initializable {
     {
      try {
             
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/rendezVou.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/rendezVous.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = (Stage) GoToCon.getScene().getWindow();
@@ -292,7 +279,6 @@ public class UserDashBoardController implements Initializable {
             ex.printStackTrace();
         }
     }
-    @FXML
     public void gotoMenu()
     {
      try {
@@ -330,10 +316,26 @@ public class UserDashBoardController implements Initializable {
     {
      try {
             
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/singleQuestion.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/FXMLDocument.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
-            Stage stage = (Stage) eventKey.getScene().getWindow();
+            Stage stage = (Stage) Forum.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void toMenu(MouseEvent event) {
+        System.out.println("menu");
+        try {
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/menu.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) GoToMenu.getScene().getWindow();
             stage.setScene(scene);
             stage.show();
         } catch (IOException ex) {

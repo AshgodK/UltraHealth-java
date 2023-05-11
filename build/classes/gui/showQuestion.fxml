@@ -5,11 +5,18 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="449.0" prefWidth="658.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.ShowQuestionController">
+<AnchorPane id="AnchorPane" prefHeight="449.0" prefWidth="658.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.ShowQuestionController">
    <children>
-      <TableView fx:id="tvQuestion" layoutX="44.0" layoutY="75.0" onSort="#showQuestion" prefHeight="324.0" prefWidth="570.0">
+      <ImageView fitHeight="503.0" fitWidth="728.0" layoutX="-20.0" layoutY="-21.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/IconePI/background.jpg" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tvQuestion" layoutX="44.0" layoutY="75.0" onSort="#showQuestion" prefHeight="324.0" prefWidth="570.0" style="-fx-background-color: transparent;">
         <columns>
           <TableColumn fx:id="colTitle" text="Titre" />
           <TableColumn fx:id="colCategorie" prefWidth="105.0" text="Categorie" />
@@ -19,11 +26,17 @@
       </TableView>
       <Label layoutX="189.0" layoutY="31.0" text="Search" />
       <TextField fx:id="searchField" layoutX="255.0" layoutY="28.0" />
-      <Button fx:id="details" layoutX="69.0" layoutY="403.0" mnemonicParsing="false" onAction="#redirectSingle" text="Details" />
-      <Button fx:id="edit" layoutX="168.0" layoutY="403.0" mnemonicParsing="false" onAction="#redirectUpdate" text="Edit" />
-      <Button fx:id="remove" layoutX="255.0" layoutY="403.0" mnemonicParsing="false" onAction="#remove" text="remove" />
+      <Button fx:id="details" layoutX="69.0" layoutY="403.0" mnemonicParsing="false" onAction="#redirectSingle" style="-fx-background-color: transparent; -fx-border-color: #4A85ED;" text="Details" />
+      <Button fx:id="edit" layoutX="168.0" layoutY="403.0" mnemonicParsing="false" onAction="#redirectUpdate" style="-fx-background-color: transparent; -fx-border-color: #4A85ED;" text="Edit" />
+      <Button fx:id="remove" layoutX="255.0" layoutY="403.0" mnemonicParsing="false" onAction="#remove" style="-fx-background-color: transparent; -fx-border-color: #4A85ED;" text="remove" />
       <Label layoutX="490.0" layoutY="32.0" prefHeight="18.0" prefWidth="61.0" text="Trier par :" />
-      <Button fx:id="btndate" layoutX="568.0" layoutY="25.0" mnemonicParsing="false" onAction="#OderQuestion" text="Date" />
+      <Button fx:id="btndate" layoutX="568.0" layoutY="25.0" mnemonicParsing="false" onAction="#OderQuestion" style="-fx-background-color: transparent; -fx-border-color: #4A85ED;" text="Date" />
+      <Button fx:id="btnstats" layoutX="434.0" layoutY="403.0" mnemonicParsing="false" onAction="#displayStats" style="-fx-background-color: transparent; -fx-border-color: #4A85ED;" text="Stats" />
+      <ImageView fx:id="home" fitHeight="67.0" fitWidth="62.0" layoutX="646.0" layoutY="8.0" onMouseClicked="#goHome" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/IconePI/home.png" />
+         </image>
+      </ImageView>
 
    </children>
 </AnchorPane>

@@ -246,7 +246,7 @@ public Connection getConnection(){
      private void addResponse() {
     String content = commentTextArea.getText();
 
-    if (content.isEmpty()) {
+    if (content.isEmpty()|| !content.matches("[a-zA-Z]+")) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setContentText("Comment cannot be empty");
         alert.showAndWait();
@@ -360,7 +360,7 @@ statement.executeUpdate();
  
  public void displayLikesCount(Question question, Label likesLabel) {
     try {
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/java", "", "");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ultrahealth", "", "");
         PreparedStatement statement = connection.prepareStatement("SELECT likes FROM question WHERE id = ?");
         statement.setInt(1, questionId);
         ResultSet resultSet = statement.executeQuery();

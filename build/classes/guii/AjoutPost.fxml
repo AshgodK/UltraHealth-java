@@ -3,12 +3,18 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guii.AjoutPostController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guii.AjoutPostController">
    <children>
+      <ImageView fitHeight="416.0" fitWidth="640.0" layoutX="-39.0" layoutY="-16.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../gui/images/IconePI/background.jpg" />
+         </image>
+      </ImageView>
       <TextArea fx:id="content" layoutX="27.0" layoutY="69.0" prefHeight="86.0" prefWidth="397.0" promptText="Publication">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -20,9 +26,9 @@
          </font>
       </Label>
       <ImageView fitHeight="125.0" fitWidth="343.0" layoutX="21.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="PublierButton" layoutX="483.0" layoutY="351.0" mnemonicParsing="false" onMousePressed="#PublierAction" style="-fx-background-color: #D6AD53;" text="Publier" />
-      <Button fx:id="PrecedentButton" layoutX="21.0" layoutY="21.0" mnemonicParsing="false" onMousePressed="#PrecedentAction" style="-fx-background-color: #D6AD53;" text="Precedent" />
-      <Label layoutX="199.0" layoutY="21.0" text="Ajouter Publication" textFill="#d6ad53">
+      <Button fx:id="PublierButton" layoutX="483.0" layoutY="351.0" mnemonicParsing="false" onMousePressed="#PublierAction" style="-fx-background-color: transparent; -fx-border-color: #4A85ED;" text="Publier" />
+      <Button fx:id="PrecedentButton" layoutX="21.0" layoutY="21.0" mnemonicParsing="false" onMousePressed="#PrecedentAction" style="-fx-background-color: transparent; -fx-border-color: #4A85ED;" text="Precedent" />
+      <Label layoutX="199.0" layoutY="21.0" text="Ajouter Publication" textFill="#4a85ed">
          <font>
             <Font size="24.0" />
          </font>

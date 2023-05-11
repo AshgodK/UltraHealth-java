@@ -12,6 +12,11 @@
 
 <AnchorPane fx:id="roleChoice" cacheShape="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #04E9F8;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SignUpController">
    <children>
+      <ImageView fitHeight="806.0" fitWidth="1008.0" layoutX="-5.0" layoutY="-2.0">
+         <image>
+            <Image url="@images/IconePI/background.jpg" />
+         </image>
+      </ImageView>
       <TextField fx:id="cinField" layoutX="116.0" layoutY="149.0" opacity="0.77" promptText="CIN" />
       <TextField fx:id="firstNameField" layoutX="379.0" layoutY="149.0" opacity="0.77" promptText="First Name" />
       <TextField fx:id="lastNamefield" layoutX="665.0" layoutY="149.0" opacity="0.77" promptText="Last Name" />

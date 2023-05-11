@@ -45,7 +45,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-//import org.controlsfx.control.textfield.TextFields;
+import org.controlsfx.control.textfield.TextFields;
 
 
 /**
@@ -89,9 +89,9 @@ public class ConsultationController implements Initializable {
     public ObservableList<Consultation> dataCons=FXCollections.observableArrayList();
     int index=-1;
     @FXML
-    private Button home;
+    private Button rz;
     @FXML
-    private Button createPdf;
+    private Button chat;
     
    
 
@@ -258,34 +258,33 @@ private void show() {
     
     }
 
-    
-    
     @FXML
-   private void CreatePDF(ActionEvent event) {
-       
-       String det = tableconsul.getSelectionModel().getSelectedItem().toString();
-         Document document = new Document();
-        try {
-            PdfWriter.getInstance(document, new FileOutputStream("pdf/consultation.pdf"));
-            document.open();
-            document.add(new Paragraph(det));
-            document.close();
-            System.out.println("PDF created successfully");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
-
+    private void modifierCons(MouseEvent event) {
     }
 
     @FXML
-    private void home(MouseEvent event) {
-        try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/userDashBoard.fxml"));
-            Parent root = loader.load();
+    private void gorz(MouseEvent event) {FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/rendezvous.fxml"));
+           try{
+               Parent root = loader.load();
             Scene scene = new Scene(root);
-            Stage stage = (Stage) home.getScene().getWindow();
+            Stage stage = (Stage) rz.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+        
+    }
+
+    @FXML
+    private void goChat(MouseEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/chat.fxml"));
+    
+         try{
+               Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) rz.getScene().getWindow();
             stage.setScene(scene);
             stage.show();
         } catch (IOException ex) {
@@ -293,10 +292,10 @@ private void show() {
         }
     }
 
-    @FXML
-    private void modifierCons(MouseEvent event) {
-    }
-
-   
+    
+    
+    
+    
+  
     
 }

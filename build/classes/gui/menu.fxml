@@ -16,11 +16,14 @@
    <children>
       <ImageView fitHeight="581.0" fitWidth="790.0" layoutX="256.0" layoutY="-1.0">
          <image>
-            <Image url="@../Images/dark-blue-ornament-texture-wallpaper-preview.jpg" />
+            <Image url="@images/IconePI/background.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="750.0" layoutY="223.0" text="Titre:" textFill="WHITE" />
-      <Button layoutX="285.0" layoutY="469.0" mnemonicParsing="false" onAction="#AfficherMenu" prefHeight="47.0" prefWidth="117.0" style="-fx-label-padding: 9; -fx-background-color: #F0882F; -fx-border-radius: 15; -fx-background-radius: 15; -fx-cursor: hand;" text="Afficher">
+      <Label layoutX="750.0" layoutY="223.0" text="Titre:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Button layoutX="285.0" layoutY="469.0" mnemonicParsing="false" onAction="#AfficherMenu" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: transparent; -fx-border-color: #4A85ED; -fx-border-radius: 5px;" text="Afficher">
          <graphic>
             <ImageView fitHeight="33.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -41,21 +44,24 @@
          </graphic></Button>
       <TextField fx:id="idsup" blendMode="LIGHTEN" cache="true" layoutX="881.0" layoutY="474.0" prefHeight="36.0" prefWidth="67.0" style="-fx-background-color: #370898; -fx-background-radius: 10px; -fx-padding: 10px 20px; -fx-text-fill: white;" />
       <TextField fx:id="tfsearch" blendMode="DIFFERENCE" layoutX="327.0" layoutY="46.0" onKeyReleased="#searchkey" prefHeight="33.0" prefWidth="163.0" promptText="Chercher" />
-      <Button layoutX="652.0" layoutY="52.0" mnemonicParsing="false" onMouseClicked="#tributton" prefHeight="33.0" prefWidth="75.0" style="-fx-background-radius: 5px;" text="Trier" />
+      <Button layoutX="652.0" layoutY="52.0" mnemonicParsing="false" onMouseClicked="#tributton" prefHeight="33.0" prefWidth="75.0" style="-fx-border-radius: 5px; -fx-background-color: transparent; -fx-border-color: #4A85ED;" text="Trier" />
       <ImageView fitHeight="125.0" fitWidth="200.0">
          <image>
             <Image url="@../../../../dark-blue-ornament-texture-wallpaper-preview.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="750.0" layoutY="272.0" text="Category" textFill="WHITE" />
+      <Label layoutX="750.0" layoutY="272.0" text="Category">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
       <ImageView fitHeight="42.0" fitWidth="43.0" layoutX="285.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/icons8-google-web-recherche-64.png" />
          </image>
       </ImageView>
-      <TextField fx:id="tfcategory" blendMode="LIGHTEN" layoutX="837.0" layoutY="263.0" style="-fx-background-color: #370898; -fx-padding: 10px 20px; -fx-background-radius: 10px; -fx-text-fill: white;" stylesheets="@style.css" />
-      <TextField fx:id="tftitre" blendMode="LIGHTEN" layoutX="837.0" layoutY="214.0" style="-fx-background-color: #370898; -fx-padding: 10px 20px; -fx-background-radius: 10px; -fx-text-fill: white;" stylesheets="@style.css" />
-      <TextField fx:id="tfplats_id" blendMode="LIGHTEN" focusTraversable="false" layoutX="837.0" layoutY="316.0" prefHeight="26.0" prefWidth="182.0" style="-fx-background-color: #370898; -fx-padding: 10px 20px; -fx-background-radius: 10px; -fx-text-fill: white;" stylesheets="@style.css" />
+      <TextField fx:id="tfcategory" blendMode="LIGHTEN" layoutX="837.0" layoutY="263.0" style="-fx-background-color: #4A85ED; -fx-padding: 10px 20px; -fx-background-radius: 10px; -fx-text-fill: white;" stylesheets="@style.css" />
+      <TextField fx:id="tftitre" blendMode="LIGHTEN" layoutX="837.0" layoutY="214.0" style="-fx-background-color: #4A85ED; -fx-padding: 10px 20px; -fx-background-radius: 10px; -fx-text-fill: white;" stylesheets="@style.css" />
+      <TextField fx:id="tfplats_id" blendMode="LIGHTEN" focusTraversable="false" layoutX="837.0" layoutY="316.0" prefHeight="26.0" prefWidth="182.0" style="-fx-background-color: #4A85ED; -fx-padding: 10px 20px; -fx-background-radius: 10px; -fx-text-fill: white;" stylesheets="@style.css" />
       <Button layoutX="914.0" layoutY="369.0" mnemonicParsing="false" onAction="#ModifierMenu" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Modifier" textFill="#00fadf">
          <font>
             <Font name="Segoe UI Semibold" size="14.0" />
@@ -80,14 +86,14 @@
             </ImageView>
          </graphic>
       </Button>
-      <TableView fx:id="tablem" layoutX="285.0" layoutY="86.0" onMouseClicked="#selectionner" prefHeight="373.0" prefWidth="442.0">
+      <TableView fx:id="tablem" layoutX="285.0" layoutY="86.0" onMouseClicked="#selectionner" prefHeight="373.0" prefWidth="442.0" style="-fx-background-color: transparent;">
          <columns>
             <TableColumn fx:id="ttitre" minWidth="0.0" prefWidth="159.0" text="Titre" />
             <TableColumn fx:id="tcategory" prefWidth="140.0" text="Category" />
             <TableColumn fx:id="tplats_id" minWidth="0.0" prefWidth="142.0" text="Plats_ID" />
          </columns>
       </TableView>
-      <Button fx:id="buttonqr" layoutX="443.0" layoutY="469.0" mnemonicParsing="false" onAction="#CreerPDF" prefHeight="47.0" prefWidth="127.0" style="-fx-background-color: #F0882F; -fx-cursor: hand; -fx-border-radius: 15; -fx-background-radius: 15;" text="Obtenir PDF">
+      <Button fx:id="buttonqr" layoutX="443.0" layoutY="469.0" mnemonicParsing="false" onAction="#CreerPDF" prefHeight="47.0" prefWidth="127.0" style="-fx-background-color: transparent; -fx-border-color: #4A85ED; -fx-border-radius: 5px;" text="Obtenir PDF">
          <graphic>
             <ImageView fitHeight="26.0" fitWidth="26.0">
                <image>
@@ -100,7 +106,7 @@
          <children>
             <ImageView fitHeight="73.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/jimmy-fallon.png" />
+                  <Image url="@images/IconePI/client.png" />
                </image>
                <VBox.margin>
                   <Insets bottom="10.0" top="50.0" />
@@ -203,8 +209,11 @@
             </Button>
          </children>
       </VBox>
-      <Label layoutX="750.0" layoutY="325.0" text="Plats_id" textFill="WHITE" />
-      <Button fx:id="buttonqr1" layoutX="600.0" layoutY="469.0" mnemonicParsing="false" onAction="#CreerQR" prefHeight="47.0" prefWidth="127.0" style="-fx-background-color: #F0882F; -fx-cursor: hand; -fx-border-radius: 15; -fx-background-radius: 15;" text="Afficher QR">
+      <Label layoutX="750.0" layoutY="325.0" text="Plats_id">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Button fx:id="buttonqr1" layoutX="600.0" layoutY="469.0" mnemonicParsing="false" onAction="#CreerQR" prefHeight="47.0" prefWidth="127.0" style="-fx-background-color: transparent; -fx-border-color: #4A85ED; -fx-border-radius: 5px;" text="Afficher QR">
          <graphic>
             <ImageView fitHeight="26.0" fitWidth="26.0">
                <image>

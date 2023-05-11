@@ -21,7 +21,7 @@
             <HBox prefHeight="100.0" prefWidth="200.0" />
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../Downloads/331936351_3529688450642625_3445023389678489015_n.png" />
+                  <Image url="@images/ultrahealth.png" />
                </image>
             </ImageView>
             <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">

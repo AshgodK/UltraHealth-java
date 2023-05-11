@@ -10,11 +10,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="919.0" prefWidth="1282.0" style="-fx-background-color: #0F3263;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AdminDashboardController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="919.0" prefWidth="1282.0" style="-fx-background-color: #4A85ED;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AdminDashboardController">
    <children>
+      <ImageView fitHeight="945.0" fitWidth="1293.0" layoutX="-9.0" layoutY="-21.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/IconePI/background.jpg" />
+         </image>
+      </ImageView>
       <Label fx:id="profileLabale" layoutX="850.0" layoutY="30.0" prefHeight="34.0" prefWidth="218.0" text="PROFILE :" textFill="#eee5e5" />
       <Label layoutY="17.0" prefHeight="34.0" prefWidth="141.0" text="ADMIN DASHBOARD" textFill="WHITE" />
-      <TableView fx:id="userTableView" layoutX="14.0" layoutY="256.0" prefHeight="479.0" prefWidth="830.0">
+      <TableView fx:id="userTableView" layoutX="14.0" layoutY="256.0" prefHeight="479.0" prefWidth="830.0" style="-fx-background-color: transparent;">
         <columns>
           <TableColumn fx:id="idColumn" prefWidth="46.0" text="ID" />
           <TableColumn fx:id="cinColumn" prefWidth="110.0" text="CIN" />
@@ -27,44 +32,44 @@
       </TableView>
       <ImageView fx:id="profileIcon" fitHeight="54.0" fitWidth="58.0" layoutX="784.0" layoutY="20.0" onMouseClicked="#profileClicked" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/homme.png" />
+            <Image url="@images/IconePI/client.png" />
          </image>
       </ImageView>
-      <Button fx:id="disconnectinBtn" layoutX="1104.0" layoutY="34.0" mnemonicParsing="false" onAction="#disconnectinBtnClicked" text="Log out" />
-      <Pane layoutX="866.0" layoutY="279.0" prefHeight="397.0" prefWidth="384.0" style="-fx-background-color: #04E9F8;">
+      <Button fx:id="disconnectinBtn" layoutX="1104.0" layoutY="34.0" mnemonicParsing="false" onAction="#disconnectinBtnClicked" style="-fx-background-color: transparent; -fx-border-color: #4A85ED; -fx-border-radius: 5px;" text="Log out" />
+      <Pane layoutX="866.0" layoutY="279.0" prefHeight="397.0" prefWidth="384.0" style="-fx-background-color: transparent;">
          <children>
             <TextField fx:id="cinEdit" layoutX="21.0" layoutY="44.0" />
             <TextField fx:id="fNameEdit" layoutX="201.0" layoutY="45.0" />
             <TextField fx:id="lNameEdit" layoutX="21.0" layoutY="128.0" />
             <TextField fx:id="zoneEdit" layoutX="196.0" layoutY="128.0" />
             <TextField fx:id="emailEdit" layoutX="109.0" layoutY="202.0" />
-            <Button fx:id="UpdateBtn" layoutX="159.0" layoutY="336.0" mnemonicParsing="false" onAction="#UpdateBtnClicked" text="Update" />
+            <Button fx:id="UpdateBtn" layoutX="159.0" layoutY="336.0" mnemonicParsing="false" onAction="#UpdateBtnClicked" style="-fx-background-color: transparent; -fx-border-color: #4A85ED; -fx-border-radius: 5px;" text="Update" />
          </children>
       </Pane>
       <Pane layoutX="20.0" layoutY="80.0" prefHeight="54.0" prefWidth="218.0">
          <children>
-            <ImageView fx:id="allUsersConected" fitHeight="34.0" fitWidth="34.0" layoutX="161.0" layoutY="11.0" onMouseClicked="#allUsersConectedClicked" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="allUsersConected" fitHeight="43.0" fitWidth="54.0" layoutX="161.0" layoutY="11.0" onMouseClicked="#allUsersConectedClicked" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/activiste.png" />
+                  <Image url="@images/IconePI/utulisateur.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="editIcon" fitHeight="34.0" fitWidth="34.0" layoutX="105.0" layoutY="11.0" onMouseClicked="#editClicked" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/crayon.png" />
+                  <Image url="@images/IconePI/edit.png" />
                </image>
             </ImageView>
             <ImageView fx:id="deleteIcon" fitHeight="34.0" fitWidth="34.0" layoutX="59.0" layoutY="11.0" onMouseClicked="#deleteClicked" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/supprimer.png" />
+                  <Image url="@images/IconePI/remove.png" />
                </image>
             </ImageView>
             <ImageView fx:id="refreshIcone" fitHeight="34.0" fitWidth="46.0" layoutX="10.0" layoutY="11.0" onMouseClicked="#refreshClicked" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/page-daccueil.png" />
+                  <Image url="@images/IconePI/home.png" />
                </image>
             </ImageView>
          </children>
       </Pane>
-      <Button fx:id="EVENTS_man" layoutX="866.0" layoutY="685.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="64.0" text="EVENTS" />
+      <Button fx:id="EVENTS_man" layoutX="866.0" layoutY="685.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="64.0" style="-fx-background-color: transparent; -fx-border-color: #4A85ED; -fx-border-radius: 5px;" text="EVENTS" />
    </children>
 </AnchorPane>

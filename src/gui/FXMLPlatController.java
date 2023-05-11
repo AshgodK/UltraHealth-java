@@ -55,13 +55,9 @@ public class FXMLPlatController implements Initializable {
     @FXML
     private TextField tftitre;
     @FXML
-    private Button stat;
-    @FXML
     private TextField tfcaloris;
     @FXML
     private TextField tfingrediants_id;
-    @FXML
-    private TableColumn<Plat, Integer> idt;
     @FXML
     private TableColumn<Plat, String> ttitre;
     @FXML
@@ -75,6 +71,24 @@ public class FXMLPlatController implements Initializable {
     @FXML
     private TextField tfsearch;
     private int vartri = 0;
+    @FXML
+    private Button buttonqr;
+    @FXML
+    private Button btnOverview;
+    @FXML
+    private Button btnIngrediant;
+    @FXML
+    private Button btnPlat;
+    @FXML
+    private Button btnMenus;
+    @FXML
+    private Button btnPackages;
+    @FXML
+    private Button btnSettings;
+    @FXML
+    private Button btnSignout;
+    @FXML
+    private Button buttonqr1;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -161,8 +175,6 @@ public class FXMLPlatController implements Initializable {
     
         
 
-     @FXML
-    private StackPane root;
     
     @FXML
     private void CreerQR(ActionEvent event) {
@@ -342,5 +354,20 @@ public class FXMLPlatController implements Initializable {
     stage.setScene(scene);
     stage.show();
 }
+
+    @FXML
+    private void goHome(MouseEvent event) {
+        try {
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/userDashBoard.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) btnOverview.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
     
 }

@@ -10,12 +10,12 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="791.0" style="-fx-background-color: #04E9F8; -fx-max-width: 1100; -fx-max-height: 900; -fx-pref-width: 1100; -fx-pref-height: 900;" styleClass="mainWindow" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ConnectionController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="791.0" styleClass="mainWindow" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ConnectionController">
    <children>
-      <ImageView fitHeight="40.0" fitWidth="38.0" layoutX="235.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
-         <!-- <image>
-            <Image url="@/user-comment.png" />
-         </image> -->
+      <ImageView fitHeight="912.0" fitWidth="1455.0" layoutX="-278.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/IconePI/background.jpg" />
+         </image>
       </ImageView>
       <Label layoutX="26.0" layoutY="14.0" prefHeight="44.0" prefWidth="162.0" text="Ultra Health">
          <font>

@@ -16,19 +16,19 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #000000; -fx-border-color: #BE894A; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ModifierUserPara">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white; -fx-border-color: #4A85ED; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ModifierUserPara">
    <children>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: white;">
          <children>
-            <HBox prefHeight="100.0" prefWidth="200.0" />
+            <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: white;" />
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../images/logo.jpeg" />
+                  <Image url="@images/ultrahealth.png" />
                </image>
             </ImageView>
-            <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: white;">
                <children>
-                  <Button maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: black; -fx-border-color: #be894a; -fx-border-width: 3; -fx-border-radius: 40; -fx-cursor: pointer;" styleClass="hoverClass" text="X" textFill="#be894a">
+                  <Button maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: white; -fx-border-color: #4A85ED; -fx-border-width: 3; -fx-border-radius: 40; -fx-cursor: pointer;" styleClass="hoverClass" text="X" textFill="#4a85ed">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
@@ -43,7 +43,7 @@
             <Insets bottom="25.0" />
          </VBox.margin>
       </HBox>
-      <GridPane vgap="10.0">
+      <GridPane style="-fx-background-color: white;" vgap="10.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="75.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
@@ -58,7 +58,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label prefHeight="18.0" prefWidth="296.0" text="Username :" textAlignment="CENTER" textFill="#be894a" GridPane.columnIndex="1">
+            <Label prefHeight="18.0" prefWidth="296.0" style="-fx-background-color: white;" text="Username :" textAlignment="CENTER" textFill="#4a85ed" GridPane.columnIndex="1">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -66,33 +66,33 @@
                   <Insets />
                </GridPane.margin>
             </Label>
-            <Label prefHeight="18.0" prefWidth="292.0" text="Email :" textFill="#be894a" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Label prefHeight="18.0" prefWidth="292.0" style="-fx-background-color: white;" text="Email :" textFill="#4a85ed" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
             <TextField fx:id="usernametextfield" editable="false" prefHeight="26.0" prefWidth="242.0" GridPane.columnIndex="2" />
             <TextField fx:id="emailtextfield" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Label prefHeight="18.0" prefWidth="292.0" text="Password  :" textFill="#be894a" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Label prefHeight="18.0" prefWidth="292.0" style="-fx-background-color: white;" text="Password  :" textFill="#4a85ed" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label prefHeight="18.0" prefWidth="292.0" text="Confirm Password  :" textFill="#be894a" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Label prefHeight="18.0" prefWidth="292.0" style="-fx-background-color: white;" text="Confirm Password  :" textFill="#4a85ed" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
             <PasswordField fx:id="passwordtextfield" GridPane.columnIndex="2" GridPane.rowIndex="2" />
             <PasswordField fx:id="confirmpasstextfield" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <Label prefHeight="18.0" prefWidth="292.0" text="Role :" textFill="#be894a" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <Label prefHeight="18.0" prefWidth="292.0" style="-fx-background-color: white;" text="Role :" textFill="#4a85ed" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <children>
-                  <RadioButton fx:id="isadmin" mnemonicParsing="false" text="isAdmin" textFill="#be894a">
+                  <RadioButton fx:id="isadmin" mnemonicParsing="false" style="-fx-background-color: white;" text="isAdmin" textFill="#4a85ed">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -100,7 +100,7 @@
                         <ToggleGroup fx:id="howadmin" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton fx:id="isuser" mnemonicParsing="false" text="isUser" textFill="#be894a" toggleGroup="$howadmin">
+                  <RadioButton fx:id="isuser" mnemonicParsing="false" style="-fx-background-color: white;" text="isUser" textFill="#4a85ed" toggleGroup="$howadmin">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -115,7 +115,7 @@
             <Insets bottom="50.0" />
          </padding>
       </GridPane>
-      <Button mnemonicParsing="false" onAction="#onModifierclicked" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: #BE894A;" styleClass="hoverClass" text="Update" textFill="WHITE">
+      <Button mnemonicParsing="false" onAction="#onModifierclicked" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: white;" styleClass="hoverClass" text="Update" textFill="#4a85ed">
          <VBox.margin>
             <Insets bottom="20.0" />
          </VBox.margin>

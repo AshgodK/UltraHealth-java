@@ -9,15 +9,42 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="591.0" prefWidth="665.0" style="-fx-background-color: #D3D3D3;" stylesheets="@style/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.EvennementFrontController">
    <children>
       <ImageView fitHeight="591.0" fitWidth="677.0">
          <image>
-            <Image url="@images/backG.jpg" />
+            <Image url="@images/IconePI/background.jpg" />
          </image>
       </ImageView>
-      <TableView fx:id="tableViewEv" layoutX="143.0" layoutY="90.0" prefHeight="239.0" prefWidth="294.0" style="-fx-background-color: #5A5A5A;">
+      <TextField fx:id="sID" layoutX="394.0" layoutY="385.0" prefHeight="42.0" prefWidth="220.0" />
+      <Button layoutX="394.0" layoutY="445.0" mnemonicParsing="false" onAction="#AfficherEventByTitle" prefHeight="42.0" prefWidth="62.0" style="-fx-background-color: transparent; -fx-border-color: #4A85ED; -fx-border-radius: 5px;" text="Title">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="233.0" layoutY="385.0" mnemonicParsing="false" onAction="#AfficherEventTriDD" prefHeight="42.0" prefWidth="61.0" style="-fx-background-color: transparent; -fx-border-color: #4A85ED; -fx-border-radius: 5px;" text="TriDD">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="313.0" layoutY="385.0" mnemonicParsing="false" onAction="#buyP" prefHeight="42.0" prefWidth="62.0" style="-fx-background-color: transparent; -fx-border-color: #4A85ED; -fx-border-radius: 5px;" text="BUY">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button fx:id="goToDetail" layoutX="552.0" layoutY="531.0" mnemonicParsing="false" onAction="#loadDetail" style="-fx-background-color: transparent; -fx-border-color: #4A85ED; -fx-border-radius: 5px;" text="DETAIL" textFill="#1b0000">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="143.0" layoutY="385.0" mnemonicParsing="false" onAction="#AfficherEvent" prefHeight="42.0" prefWidth="73.0" style="-fx-background-color: transparent; -fx-border-color: #4A85ED; -fx-border-radius: 5px;" text="afficher">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <ChoiceBox fx:id="categorie" layoutX="477.0" layoutY="445.0" prefHeight="42.0" prefWidth="120.0" />
+      <Button fx:id="GoToProfile" layoutX="478.0" layoutY="531.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-border-color: #4A85ED; -fx-border-radius: 5px;" text="Profile">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <TableView fx:id="tableViewEv" layoutX="143.0" layoutY="90.0" prefHeight="239.0" prefWidth="294.0" style="-fx-background-color: transparent;">
         <columns>
           <TableColumn fx:id="id_event" prefWidth="43.20001220703125" text="ID" visible="false" />
           <TableColumn fx:id="titre_event" prefWidth="67.20001220703125" text="TITRE" />
@@ -30,14 +57,6 @@
             <TableColumn fx:id="nbrP_event" prefWidth="57.60009765625" text="nbrP" visible="false" />
         </columns>
       </TableView>
-      <TextField fx:id="sID" layoutX="394.0" layoutY="385.0" prefHeight="42.0" prefWidth="220.0" />
-      <Button layoutX="394.0" layoutY="445.0" mnemonicParsing="false" onAction="#AfficherEventByTitle" prefHeight="42.0" prefWidth="62.0" text="Title" />
-      <Button layoutX="233.0" layoutY="385.0" mnemonicParsing="false" onAction="#AfficherEventTriDD" prefHeight="42.0" prefWidth="61.0" text="TriDD" />
-      <Button layoutX="313.0" layoutY="385.0" mnemonicParsing="false" onAction="#buyP" prefHeight="42.0" prefWidth="62.0" text="BUY" />
-      <Button fx:id="goToDetail" layoutX="552.0" layoutY="531.0" mnemonicParsing="false" onAction="#loadDetail" text="DETAIL" />
-      <Button layoutX="143.0" layoutY="385.0" mnemonicParsing="false" onAction="#AfficherEvent" prefHeight="42.0" prefWidth="73.0" text="afficher" />
-      <ChoiceBox fx:id="categorie" layoutX="477.0" layoutY="445.0" prefHeight="42.0" prefWidth="120.0" />
-      <Button fx:id="GoToProfile" layoutX="478.0" layoutY="531.0" mnemonicParsing="false" text="Profile" />
    </children>
    
 </AnchorPane>

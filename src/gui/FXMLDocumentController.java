@@ -28,6 +28,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
@@ -51,7 +53,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Label label;
     @FXML
-    private Button home;
+    private ImageView ho;
     
   public Connection getConnection(){
       Connection conn;
@@ -120,7 +122,6 @@ public class FXMLDocumentController implements Initializable {
           Date now = new Date(); 
          
           //String date= dtf.format(now);
-          question.getUser().getId();
           question.setTitle(titre);
           question.setContent(content);
           question.setCategorie(categorie);
@@ -168,18 +169,14 @@ public class FXMLDocumentController implements Initializable {
 }
 
     @FXML
-    private void home(ActionEvent event) {
-        try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/userDashBoard.fxml"));
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-            Stage stage = (Stage) home.getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+    private void goho(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Gui/userDashBoard.fxml"));
+                    Parent root = loader.load();
+                    Scene scene = new Scene(root);
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                   // stage.setTitle("Edit");
+                    stage.setScene(scene);
+                    stage.show(); 
     }
    
     

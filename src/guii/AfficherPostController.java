@@ -24,6 +24,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import static javafx.scene.input.KeyCode.T;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -53,6 +54,8 @@ public class AfficherPostController implements Initializable {
     private Button publicationListViewButton;
     @FXML
     private Button profile;
+    @FXML
+    private ImageView home;
 
     /**
      * Initializes the controller class.

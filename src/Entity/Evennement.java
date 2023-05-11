@@ -27,7 +27,7 @@ public class Evennement implements Serializable {
     private int nbrP;
     private float prix;
     private String date_deb,date_fin; 
-   private String  titre, description,adresse,cat_title;
+   private String  titre, description,adresse,cat_title,eventimg;
 
     public Long getId() {
         return id;
@@ -103,6 +103,15 @@ public class Evennement implements Serializable {
     public void setPrix(float prix) {
         this.prix = prix;
     }
+
+    public String getEventimg() {
+        return eventimg;
+    }
+
+    public void setEventimg(String eventimg) {
+        this.eventimg = eventimg;
+    }
+    
     
 
     @Override
